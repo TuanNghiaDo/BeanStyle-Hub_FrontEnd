@@ -1,11 +1,11 @@
-
+import Hello from "@components/Hello/Hello"
 
 function App() {
 
 
   return (
     <>
-      <h1>BeanStyle-Hub</h1>
+      <Hello /> E-commerce
     </>
   )
 }
