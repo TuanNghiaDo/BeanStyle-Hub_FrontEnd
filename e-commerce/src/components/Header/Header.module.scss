@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 10px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.socialMedia, .iconActions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+span {
+    word-spacing: -4px;
+}
+
+.iconActions {
+    gap: 12px;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,7 +1,11 @@
+import styles from './Layout.module.scss';
+
 function MainLayout({ children }) {
+
+    const { wrapper, container } = styles
     return (
-        <main>
-            <div>{children}</div>
+        <main className={wrapper}>
+            <div className={container}>{children}</div>
         </main>
     );
 }
