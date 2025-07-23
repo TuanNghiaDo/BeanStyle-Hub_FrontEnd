@@ -335,7 +335,7 @@ export const SyncIcon = ({ width = '2.4rem', height = '2.4rem', className }) => 
                 fillOpacity="0.85" />
         </g>
         <defs>
-            <clipPath id="clip0_201_95640">
+            <clipPath id="clip0_201_9c5640">
                 <rect width="28.4498" height="23.918" fill="currentColor" transform="translate(0.0839844 2.04761)" />
             </clipPath>
         </defs>

@@ -1,9 +1,37 @@
-.header {
+.wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
-    padding-top: 10px;
+
+    background-color: transparent; 
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%); // Bắt đầu từ vị trí bị ẩn ở trên
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0); // Kết thúc ở vị trí bình thường (top: 0)
+    opacity: 1;
+  }
+}
+
+
+.scrolled {
+  background-color: white; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  color: black; 
+
+  transform: translateY(-100%);
+  animation: slideDown 0.8s ease-out forwards;
 }
 
 .actions {

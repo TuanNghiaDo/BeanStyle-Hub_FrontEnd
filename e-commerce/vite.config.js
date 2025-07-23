@@ -17,6 +17,8 @@ export default defineConfig({
       '@icons': path.resolve(__dirname, 'src/components/Icons'),
       '@config': path.resolve(__dirname, 'src/config'),
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@images': path.resolve(__dirname, 'src/assets/images'),
+      '@Images': path.resolve(__dirname, 'src/components/Image'),
     }
   }
 })

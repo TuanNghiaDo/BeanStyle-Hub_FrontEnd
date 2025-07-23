@@ -20,6 +20,10 @@ body {
     text-rendering: optimizeSpeed;
 }
 
+.app {
+    height: 2000px;
+}
+
 a[href] {
     display: flex;
     align-items: center;

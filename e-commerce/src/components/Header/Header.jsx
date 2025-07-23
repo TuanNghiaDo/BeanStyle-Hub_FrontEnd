@@ -1,11 +1,33 @@
+import clsx from 'clsx'
+import { useState, useEffect } from 'react'
 
-import { FacebookIcon, InstagramIcon, TiktokIcon, CartIcon, HeartIcon, LogoIcon, SyncIcon } from "@icons/Icons";
-import styles from './Header.module.scss';
-import { dataMenu as DataMenu } from './constant.js';
+import { FacebookIcon, InstagramIcon, TiktokIcon, CartIcon, HeartIcon, LogoIcon, SyncIcon } from "@icons/Icons"
+import styles from './Header.module.scss'
+import { dataMenu as DataMenu } from './constant.js'
 
 function Header() {
+
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
     return (
-        <div className={styles.header}>
+        <div className={clsx(styles.wrapper, { [styles.scrolled]: isScrolled })}>
             <div className={styles.actions}>
                 <div className={styles.socialMedia}>
                     <a href="/">
@@ -50,7 +72,7 @@ function Header() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Header;
+export default Header
