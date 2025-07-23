@@ -1,9 +1,7 @@
-import clsx from "clsx";
-import { FacebookIcon, InstagramIcon, TiktokIcon } from "@icons/Icons";
+
+import { FacebookIcon, InstagramIcon, TiktokIcon, CartIcon, HeartIcon, LogoIcon, SyncIcon } from "@icons/Icons";
 import styles from './Header.module.scss';
-import { CartIcon, HeartIcon, LogoIcon, SyncIcon } from "../Icons/Icons";
-
-
+import { dataMenu as DataMenu } from './constant.js';
 
 function Header() {
     return (
@@ -21,15 +19,11 @@ function Header() {
                     </a>
                 </div>
                 <div className={styles.nav}>
-                    <a href="/">
-                        <span>Sản phẩm</span>
-                    </a>
-                    <a href="/">
-                        <span>Cửa hàng</span>
-                    </a>
-                    <a href="/">
-                        <span>Về chúng tôi</span>
-                    </a>
+                    {DataMenu.slice(0, 3).map((item, index) => (
+                        <a href="/" key={index}>
+                            <span>{item.label}</span>
+                        </a>
+                    ))}
                 </div>
             </div>
             <div className={styles.brand}>
@@ -37,15 +31,11 @@ function Header() {
             </div>
             <div className={styles.actions}>
                 <div className={styles.nav}>
-                    <a href="/">
-                        <span>Liên hệ</span>
-                    </a>
-                    <a href="/">
-                        <span>Tìm kiếm</span>
-                    </a>
-                    <a href="/">
-                        <span>Đăng nhập</span>
-                    </a>
+                    {DataMenu.slice(3, 6).map((item, index) => (
+                        <a href="/" key={index}>
+                            <span>{item.label}</span>
+                        </a>
+                    ))}
                 </div>
                 <div className={styles.iconActions}>
                     <a href="/">

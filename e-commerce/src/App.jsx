@@ -1,19 +1,26 @@
-
-import MainLayout from "@components/Layout/Layout"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from "@components/Header/Header"
 import Footer from "@components/Footer/Footer"
+import { publicRoutes } from './routes'
 
 function App() {
 
 
   return (
-    <>
-      <MainLayout>
+    <Router>
+      <div className="app">
         <Header />
-        Content
+        <main>
+          <Routes>
+            {publicRoutes.map((route, index) => {
+              const Page = route.component;
+              return <Route key={index} path={route.path} element={<Page />} />
+            })}
+          </Routes>
+        </main>
         <Footer />
-      </MainLayout>
-    </>
+      </div>
+    </Router>
   )
 }
 
