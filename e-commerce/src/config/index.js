@@ -1,6 +1,8 @@
 import routes from './routes';
+import outsidePaths from './constant_path';
 const config = {
-    routes
+    routes,
+    outsidePaths
 }
 
 export default config;

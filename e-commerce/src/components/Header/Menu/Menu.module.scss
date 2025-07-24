@@ -1,0 +1,23 @@
+.navText {
+    display: flex;
+    align-items: center;
+}
+
+.navIcons, .iconActions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+span {
+    word-spacing: -4px;
+}
+
+.actionIcons {
+    gap: 12px;
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
