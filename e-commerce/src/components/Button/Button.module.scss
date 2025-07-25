@@ -1,0 +1,16 @@
+.wrapper {
+    text-align: center;
+    color: var(--white_color);
+    padding: 13px 45px;
+    border-radius: 3px;
+    background-color: var(--primary);
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--primary);
+        background-color: var(--white_color);
+        outline: 1px solid var(--primary);
+    }
+}
