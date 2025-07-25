@@ -19,7 +19,7 @@ function MenuItem({ icon, to, href, title, className, ...props }) {
     }
 
     if (Component === NavLink) {
-        _props.className = ({ isActive }) => clsx(styles.menuItem, className, { [styles.active]: isActive })
+        _props.className = ({ isActive }) => clsx(className, { [styles.active]: isActive })
     } else {
         _props.className = clsx(styles.menuItem, className)
     }

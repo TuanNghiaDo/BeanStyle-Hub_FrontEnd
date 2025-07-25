@@ -28,11 +28,11 @@ function Header() {
 
     return (
         <div className={clsx(styles.wrapper, { [styles.scrolled]: isScrolled })}>
-            <Menu className="menuLeft" />
+            <Menu position='left' className={styles.menuLeft} />
             <div className={styles.brand}>
                 <LogoIcon />
             </div>
-            <Menu className="menuRight" />
+            <Menu position='right' className={styles.menuRight} />
         </div>
     )
 }

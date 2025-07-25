@@ -8,8 +8,9 @@
     justify-content: center;
     gap: 30px;
 
-    background-color: transparent; 
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    background-color: var(--bisque_color);
+    opacity: 0.9;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
 }
 
@@ -26,7 +27,7 @@
 
 
 .scrolled {
-  background-color: white;
+  background-color: var(--white_color);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   color: black;
 
@@ -41,3 +42,9 @@
     justify-content: center;
 }
 
+
+.menuLeft, .menuRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

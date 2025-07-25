@@ -1,6 +1,9 @@
+//Menu
 .navText {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 14px;
 }
 
 .navIcons, .iconActions {
@@ -16,8 +19,44 @@ span {
 }
 
 .actionIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
     margin-left: 20px;
-    margin-right: 0px;
 }
 
+//Menu-Item
+.menuItem {
+  position: relative;
+  display: inline-flex;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--sub_color);
+
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+
+  &.active {
+
+    color: var(--sub_color);
+    font-weight: bold;
+
+
+    &::after {
+      width: 100%;
+    }
+  }
+}

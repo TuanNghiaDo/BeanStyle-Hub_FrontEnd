@@ -4,11 +4,11 @@ import pathConfig from '@config/index'
 import { NAV_TEXT } from '@constants/text'
 import { FacebookIcon, InstagramIcon, TiktokIcon, SyncIcon, HeartIcon, CartIcon } from '@icons/Icons'
 
-function Menu({ className }) {
+function Menu({ className, position }) {
 
-    if (className === 'menuLeft') {
+    if (position === 'left') {
         return (
-            <div className={styles.menuLeft}>
+            <div className={className}>
                 <div className={styles.navIcons}>
                     <MenuItem
                         href={pathConfig.outsidePaths.facebook}
@@ -25,36 +25,39 @@ function Menu({ className }) {
                 </div>
                 <div className={styles.navText}>
                     <MenuItem
+                        className={styles.menuItem}
                         to={pathConfig.routes.home}
                         title={NAV_TEXT.HOME}
-                        isActive={true}
                     />
                     <MenuItem
+                        className={styles.menuItem}
                         to={pathConfig.routes.store}
                         title={NAV_TEXT.SHOP}
-                        isActive={true}
                     />
                     <MenuItem
+                        className={styles.menuItem}
                         to={pathConfig.routes.about_us}
                         title={NAV_TEXT.ABOUT}
-                        isActive={true}
                     />
                 </div>
             </div>
         )
     } else {
         return (
-            <div className={className = styles.menuRight}>
+            <div className={className}>
                 <div className={styles.navText}>
                     <MenuItem
+                        className={styles.menuItem}
                         to={pathConfig.routes.contact}
                         title={NAV_TEXT.CONTACT}
                     />
                     <MenuItem
+                        className={styles.menuItem}
                         to={pathConfig.routes.search}
                         title={NAV_TEXT.SEARCH}
                     />
                     <MenuItem
+                        className={styles.menuItem}
                         to={pathConfig.routes.login}
                         title={NAV_TEXT.LOGIN}
                     />
