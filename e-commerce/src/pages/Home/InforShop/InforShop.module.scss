@@ -1,0 +1,36 @@
+.wrapper {
+    position: absolute;
+    top: 88%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    max-width: 1400px;
+    min-width: 1300px;
+    min-height: 170px;
+    padding: 30px 55px 0;
+    color: var(--white_color);
+
+    background-color: var(--primary);
+}
+
+.inforItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    margin-right: 20px;
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.8rem;
+}
+
+.description {
+    display: block;
+    color: var(--secondary_color);
+    margin-top: 10px;
+}
