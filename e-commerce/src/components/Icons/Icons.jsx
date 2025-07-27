@@ -435,7 +435,7 @@ export const CancelIcon = ({ width = '3.8rem', height = '3.8rem', className }) =
 
 )
 
-export const SupportIcon = ({ width = '3.6rem', height = '3.6rem', className }) => (
+export const SupportIcon = ({ width = '4rem', height = '4rem', className }) => (
     <svg
         className={className}
         width={width}

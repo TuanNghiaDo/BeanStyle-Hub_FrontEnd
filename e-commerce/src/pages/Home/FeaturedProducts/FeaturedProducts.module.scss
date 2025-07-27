@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+    margin: 160px auto 0;
+
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    margin-bottom: 50px;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 50px;
+        transform: translateY(-16px);
+
+        span {
+            color: var(--thr_color);
+        }
+
+        h2 {
+            font-weight: 400;
+        }
+
+    }
+
+    .line{
+        flex: 1;
+        height: 4px;
+        background-color: #fff;
+        border-top: solid 1px #e1e1e1;
+        border-bottom: solid 1px #e1e1e1
+    }
+}

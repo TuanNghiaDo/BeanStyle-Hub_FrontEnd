@@ -1,12 +1,14 @@
 .wrapper {
     position: absolute;
-    top: 88%;
+    top: 662px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
     max-width: 1400px;
     min-width: 1300px;
-    min-height: 170px;
+    min-height: 160px;
     padding: 30px 55px 0;
     color: var(--white_color);
 
@@ -14,6 +16,7 @@
 }
 
 .inforItem {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
