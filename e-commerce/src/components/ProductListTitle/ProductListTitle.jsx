@@ -1,4 +1,5 @@
 import CountDownBanner from '../CountDownBanner/CountDownBanner';
+import ProductItem from '@components/ProductItem/ProductItem';
 import styles from './ProductListTitle.module.scss';
 
 function ProductListTitle() {
@@ -9,8 +10,8 @@ function ProductListTitle() {
         <div className={styles.wrapper}>
             <CountDownBanner targetDate={targetDate} />
             <div className={styles.content}>
-                <div>1</div>
-                <div>2</div>
+                <ProductItem />
+                <ProductItem />
             </div>
         </div>
     );

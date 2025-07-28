@@ -1,0 +1,46 @@
+.wrapper {
+    width: calc(100%/2);
+
+    .link {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        &:hover {
+            .imageProductHover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.imageProductHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.imageProduct {
+    width: 100%;
+    height: 356px;
+    object-fit: cover;
+}
+
+
+
+.productName {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--four_color);
+    padding-top: 5px;
+}
+
+.price {
+    font-size: 1.4rem;
+    color: var(--thr_color);
+    margin-bottom: 7px;
+}
