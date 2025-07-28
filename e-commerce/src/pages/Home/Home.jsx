@@ -1,14 +1,18 @@
 import clsx from 'clsx'
+
 import styles from './Home.module.scss';
-import Banner from './Banner/Banner';
-import InforShop from './InforShop/InforShop';
-import FeaturedProducts from './FeaturedProducts/FeaturedProducts';
+import Banner from '@components/Banner/Banner';
+import InforShop from '@components/InforShop/InforShop';
+import HeadingFeatured from '@components/HeadingFeatured/HeadingFeatured';
+import ProductListTitle from '@components/ProductListTitle/ProductListTitle';
+
 function Home() {
     return (
         <div className={clsx(styles.wrapper)}>
             <Banner />
             <InforShop />
-            <FeaturedProducts />
+            <HeadingFeatured />
+            <ProductListTitle />
         </div>
     );
 }
