@@ -20,6 +20,7 @@ export default defineConfig({
       '@images': path.resolve(__dirname, 'src/assets/images'),
       '@Images': path.resolve(__dirname, 'src/components/Image'),
       '@constants': path.resolve(__dirname, 'src/constants'),
+      '@api': path.resolve(__dirname, 'src/apis'),
     }
   }
 })
