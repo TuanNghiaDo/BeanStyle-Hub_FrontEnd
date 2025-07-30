@@ -19,7 +19,7 @@ function ProductItem() {
                     className={clsx(styles.imageProduct, styles.imageProductHover)}
                     src={hoverImg}
                 />
-                <SidebarProductItem />
+                <SidebarProductItem className={styles.sidebarProductItem} />
                 <h2 className={styles.productName}>10k Yellow Gold</h2>
             </Link>
             <span className={styles.price}>$500</span>

@@ -1,4 +1,5 @@
 .wrapper {
+    position: relative;
     width: calc(100%/2);
 
     .link {
@@ -9,8 +10,16 @@
         width: 100%;
 
         &:hover {
+
             .imageProductHover {
                 opacity: 1;
+            }
+
+            .sidebarProductItem {
+               opacity: 1;
+                visibility: visible;
+                transform: translateX(0);
+                transition: opacity 0.3s ease, transform 0.3s ease;
             }
         }
     }
@@ -43,4 +52,8 @@
     font-size: 1.4rem;
     color: var(--thr_color);
     margin-bottom: 7px;
+}
+
+.sidebarProductItem {
+    opacity: 0;
 }

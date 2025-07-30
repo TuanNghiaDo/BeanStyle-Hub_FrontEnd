@@ -1,9 +1,9 @@
-
+import clsx from 'clsx';
 import styles from './SidebarProductItem.module.scss';
 import { EyeIcon, CartIconStroked, SyncIcon, HeartIcon } from '@components/Icons/Icons';
-function SidebarProductItem() {
+function SidebarProductItem({ className }) {
     return (
-        <div className={styles.wrapper}>
+        <div className={clsx(styles.wrapper, className)}>
             <button className={styles.btn}>
                 <CartIconStroked
                     className={styles.icon}

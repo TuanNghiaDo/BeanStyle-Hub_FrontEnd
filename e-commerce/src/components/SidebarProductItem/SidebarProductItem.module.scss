@@ -1,4 +1,8 @@
 .wrapper {
+    opacity: 0;
+    visibility: hidden; //use to prevent interaction when not visible
+    transform: translateX(20px); //Move to the right from its final position
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
     position: absolute;
     bottom: 40px;
     right: 10px;
