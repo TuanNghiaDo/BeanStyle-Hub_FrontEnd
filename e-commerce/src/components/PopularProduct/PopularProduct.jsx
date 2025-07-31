@@ -6,7 +6,7 @@ function PopularProduct({ listProduct }) {
         <div className={styles.wrapper}>
             {listProduct.map(product => (
                 <ProductItem
-                    key={product.id}
+                    key={product._id}
                     name={product.name}
                     price={product.price}
                     images={product.images}

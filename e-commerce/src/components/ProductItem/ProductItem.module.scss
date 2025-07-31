@@ -1,5 +1,4 @@
 .wrapper {
-    position: relative;
     width: 100%;
 
     .link {
@@ -42,6 +41,9 @@
 
 
 .productName {
+    white-space: nowrap; /* Bắt buộc văn bản phải nằm trên 1 dòng */
+    overflow: hidden; /* Ẩn đi phần văn bản bị tràn ra ngoài */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." ở cuối */
     font-size: 1.6rem;
     font-weight: 400;
     color: var(--four_color);

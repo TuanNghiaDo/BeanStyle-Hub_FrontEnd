@@ -12,7 +12,7 @@ function ProductListTitle({ products }) {
             <div className={styles.content}>
                 {products.map(product => (
                     <ProductItem
-                        key={product.id}
+                        key={product._id}
                         name={product.name}
                         price={product.price}
                         images={product.images}
