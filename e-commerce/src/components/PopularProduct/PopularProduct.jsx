@@ -1,14 +1,17 @@
 import styles from './PopularProduct.module.scss';
 import ProductItem from '@components/ProductItem/ProductItem';
-function PopularProduct() {
+
+function PopularProduct({ listProduct }) {
     return (
         <div className={styles.wrapper}>
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
+            {listProduct.map(product => (
+                <ProductItem
+                    key={product.id}
+                    name={product.name}
+                    price={product.price}
+                    images={product.images}
+                />
+            ))}
         </div>
     );
 }

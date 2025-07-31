@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 import styles from './Home.module.scss';
@@ -11,12 +11,12 @@ import { getProducts } from '@api/productsService'
 
 function Home() {
 
-    useEffect(() => {
+    const [listProduct, setListProduct] = useState([]);
 
-        console.log('Fetching products...');
+    useEffect(() => {
         getProducts()
             .then(data => {
-                console.log('Fetched products:', data);
+                setListProduct(data.contents);
             })
             .catch(error => {
                 console.error('Error fetching products:', error);
@@ -28,8 +28,10 @@ function Home() {
             <Banner />
             <InforShop />
             <HeadingFeatured />
-            <ProductListTitle />
-            <PopularProduct />
+            <ProductListTitle products={listProduct.slice(0, 2)} />
+            <PopularProduct
+                listProduct={listProduct.slice(2, 11)}
+            />
         </div>
     );
 }
