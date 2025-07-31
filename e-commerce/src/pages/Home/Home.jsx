@@ -6,6 +6,7 @@ import Banner from '@components/Banner/Banner';
 import InforShop from '@components/InforShop/InforShop';
 import HeadingFeatured from '@components/HeadingFeatured/HeadingFeatured';
 import ProductListTitle from '@components/ProductListTitle/ProductListTitle';
+import PopularProduct from '@components/PopularProduct/PopularProduct';
 import { getProducts } from '@api/productsService'
 
 function Home() {
@@ -28,6 +29,7 @@ function Home() {
             <InforShop />
             <HeadingFeatured />
             <ProductListTitle />
+            <PopularProduct />
         </div>
     );
 }
