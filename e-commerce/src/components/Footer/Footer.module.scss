@@ -1,0 +1,37 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #363636;
+    color: var(--white_color);
+    margin-top: 60px;
+    padding: 55px 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap : 30px;
+    margin-top: 40px;
+
+    .menuItem {
+        color: var(--white_color);
+    }
+}
+
+.img {
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.payment {
+    margin-top: 30px;
+}
+
+.copyright {
+    margin-top: 30px;
+}

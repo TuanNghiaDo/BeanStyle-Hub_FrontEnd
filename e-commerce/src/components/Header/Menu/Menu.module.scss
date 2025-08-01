@@ -30,7 +30,7 @@ span {
 .menuItem {
   position: relative;
   display: inline-flex;
-
+  cursor: pointer;
   &::after {
     content: '';
     position: absolute;
