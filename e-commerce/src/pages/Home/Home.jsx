@@ -8,6 +8,7 @@ import HeadingFeatured from '@components/HeadingFeatured/HeadingFeatured';
 import ProductListTitle from '@components/ProductListTitle/ProductListTitle';
 import PopularProduct from '@components/PopularProduct/PopularProduct';
 import { getProducts } from '@api/productsService'
+import SaleOfHomePage from '@components/SaleOfHomePage/SaleOfHomePage';
 
 function Home() {
 
@@ -32,6 +33,7 @@ function Home() {
             <PopularProduct
                 listProduct={listProduct.slice(2, 11)}
             />
+            <SaleOfHomePage />
         </div>
     );
 }

@@ -1,9 +1,9 @@
 .wrapper {
     text-align: center;
-    color: var(--white_color);
     padding: 13px 45px;
-    border-radius: 3px;
+    color: var(--white_color);
     background-color: var(--primary);
+    border-radius: 3px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -12,5 +12,17 @@
         color: var(--primary);
         background-color: var(--white_color);
         outline: 1px solid var(--primary);
+    }
+}
+
+.secondary {
+    color: var(--primary);
+    background-color: var(--white_color);
+    outline: 1px solid var(--primary);;
+
+    &:hover {
+        color: var(--white_color);
+        background-color: var(--primary);
+        outline: none;
     }
 }

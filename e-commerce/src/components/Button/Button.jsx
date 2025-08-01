@@ -4,17 +4,22 @@ function Button(
     {
         title,
         primary,
-        outline,
+        secondary,
         medium,
         large,
+        className
     }) {
 
-    const classes = clsx(styles.wrapper, {
-        [styles.primary]: primary,
-        [styles.outline]: outline,
-        [styles.medium]: medium,
-        [styles.large]: large,
-    })
+    const classes = clsx(
+        styles.wrapper,
+        className,
+        {
+            [styles.primary]: primary,
+            [styles.secondary]: secondary,
+            [styles.medium]: medium,
+            [styles.large]: large,
+        }
+    )
     return (
         <button className={classes}>{title}</button>
     );
