@@ -1,9 +1,10 @@
 import clsx from 'clsx'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 import { LogoIcon } from '@icons/Icons'
 import Menu from './Menu/Menu'
 import styles from './Header.module.scss'
+import { SidebarContext } from '@contexts/Sidebar'
 
 function Header() {
 
@@ -25,6 +26,10 @@ function Header() {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
+
+    const { isOpen } = useContext(SidebarContext)
+
+    console.log('isOpen:', isOpen)
 
     return (
         <div className={clsx(styles.wrapper, { [styles.scrolled]: isScrolled })}>
