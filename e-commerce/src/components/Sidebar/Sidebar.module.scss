@@ -30,3 +30,15 @@
 .slideSidebar {
     transform: translateX(0);
 }
+
+.closeIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    left: -60px;
+    background-color: var(--white_color);
+    padding: 10px;
+    border-radius: 50%;
+}
