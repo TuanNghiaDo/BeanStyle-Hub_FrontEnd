@@ -36,7 +36,15 @@ body {
 }
 
 .app {
-    height: 2000px;
+    display: flex;
+    flex-direction: column; /* Xếp các phần tử con theo chiều dọc */
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* Đây là dòng quan trọng nhất */
+             /* Nó ra lệnh cho <main> chiếm lấy toàn bộ không gian dọc còn lại,
+                đẩy <Footer> xuống dưới cùng */
 }
 
 a[href] {

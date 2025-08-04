@@ -1,0 +1,32 @@
+.wrapper{
+    position: relative;
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0000004d;
+        z-index: 11;
+
+        transition: all 0.3s ease;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 370px;
+    height: 100vh;
+    background-color: var(--white_color);
+    z-index: 12;
+
+    transform: translateX(370px);
+    transition: all 0.3s ease-out;
+}
+
+.slideSidebar {
+    transform: translateX(0);
+}

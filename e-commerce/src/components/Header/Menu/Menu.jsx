@@ -4,11 +4,11 @@ import pathConfig from '@config/index'
 import { NAV_TEXT } from '@constants/text'
 import { FacebookIcon, InstagramIcon, TiktokIcon, SyncIcon, HeartIcon, CartIcon } from '@icons/Icons'
 
-function Menu({ className, position }) {
+function Menu({ className, position, setIsOpen }) {
 
     if (position === 'left') {
         return (
-            <div className={className}>
+            <div className={className} >
                 <div className={styles.navIcons}>
                     <MenuItem
                         href={pathConfig.outsidePaths.facebook}
@@ -44,7 +44,7 @@ function Menu({ className, position }) {
         )
     } else {
         return (
-            <div className={className}>
+            <div className={className} onClick={() => setIsOpen(true)}>
                 <div className={styles.navText}>
                     <MenuItem
                         className={styles.menuItem}

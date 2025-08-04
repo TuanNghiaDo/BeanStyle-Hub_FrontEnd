@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from 'react'
 import { LogoIcon } from '@icons/Icons'
 import Menu from './Menu/Menu'
 import styles from './Header.module.scss'
-import { SidebarContext } from '@contexts/Sidebar'
+import { SidebarContext } from '@contexts/SidebarProvider'
 
 function Header() {
 
@@ -27,7 +27,7 @@ function Header() {
         }
     }, [])
 
-    const { isOpen } = useContext(SidebarContext)
+    const { isOpen, setIsOpen } = useContext(SidebarContext)
 
     console.log('isOpen:', isOpen)
 
@@ -37,7 +37,7 @@ function Header() {
             <div className={styles.brand}>
                 <LogoIcon />
             </div>
-            <Menu position='right' className={styles.menuRight} />
+            <Menu position='right' className={styles.menuRight} setIsOpen={setIsOpen} />
         </div>
     )
 }
