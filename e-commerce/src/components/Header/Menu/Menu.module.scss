@@ -6,7 +6,7 @@
     gap: 14px;
 }
 
-.navIcons, .iconActions {
+.navIcons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,4 +59,10 @@ span {
       width: 100%;
     }
   }
+
+}
+
+.btn {
+  color: var(--primary);
+  background-color: transparent;
 }

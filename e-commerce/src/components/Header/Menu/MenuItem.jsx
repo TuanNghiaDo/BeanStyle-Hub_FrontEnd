@@ -1,21 +1,28 @@
 import { NavLink } from "react-router-dom"
 import clsx from 'clsx'
+import { useContext } from 'react'
 
+import { SidebarContext } from '@contexts/SidebarProvider'
 import { FacebookIcon, InstagramIcon, TiktokIcon, CartIcon, HeartIcon, LogoIcon, SyncIcon } from "@icons/Icons"
 import styles from './Menu.module.scss'
 
 function MenuItem({ icon, to, href, title, className, ...props }) {
 
-    let Component = 'a'
+    const { isOpen, setIsOpen } = useContext(SidebarContext)
+
+    let Component = 'button'
 
     const _props = { ...props }
 
     if (to) {
         _props.to = to
         Component = NavLink
-    } else {
+    } else if (href) {
+        _props.target = '_blank'
         _props.href = href
         Component = 'a'
+    } else {
+        _props.onClick = () => setIsOpen(!isOpen)
     }
 
     if (Component === NavLink) {

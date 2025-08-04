@@ -1,10 +1,11 @@
+import clsx from 'clsx'
 import MenuItem from './MenuItem'
 import styles from './Menu.module.scss'
 import pathConfig from '@config/index'
 import { NAV_TEXT } from '@constants/text'
-import { FacebookIcon, InstagramIcon, TiktokIcon, SyncIcon, HeartIcon, CartIcon } from '@icons/Icons'
+import { FacebookIcon, InstagramIcon, TiktokIcon, HeartIcon, CartIcon, SyncIconLarge } from '@icons/Icons'
 
-function Menu({ className, position, setIsOpen }) {
+function Menu({ className, position }) {
 
     if (position === 'left') {
         return (
@@ -44,7 +45,7 @@ function Menu({ className, position, setIsOpen }) {
         )
     } else {
         return (
-            <div className={className} onClick={() => setIsOpen(true)}>
+            <div className={className}>
                 <div className={styles.navText}>
                     <MenuItem
                         className={styles.menuItem}
@@ -52,21 +53,28 @@ function Menu({ className, position, setIsOpen }) {
                         title={NAV_TEXT.CONTACT}
                     />
                     <MenuItem
-                        className={styles.menuItem}
-                        to={pathConfig.routes.search}
+                        className={clsx(styles.menuItem, styles.btn)}
                         title={NAV_TEXT.SEARCH}
                     />
                     <MenuItem
-                        className={styles.menuItem}
-                        to={pathConfig.routes.login}
+                        className={clsx(styles.menuItem, styles.btn)}
                         title={NAV_TEXT.LOGIN}
                     />
                 </div>
 
                 <div className={styles.actionIcons}>
-                    <SyncIcon />
-                    <HeartIcon />
-                    <CartIcon />
+                    <MenuItem
+                        className={styles.btn}
+                        icon={<SyncIconLarge />}
+                    />
+                    <MenuItem
+                        className={styles.btn}
+                        icon={<HeartIcon />}
+                    />
+                    <MenuItem
+                        className={styles.btn}
+                        icon={<CartIcon />}
+                    />
                 </div>
             </div >
         )

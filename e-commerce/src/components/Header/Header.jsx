@@ -1,10 +1,11 @@
 import clsx from 'clsx'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 
 import { LogoIcon } from '@icons/Icons'
 import Menu from './Menu/Menu'
 import styles from './Header.module.scss'
-import { SidebarContext } from '@contexts/SidebarProvider'
+import MenuItem from './Menu/MenuItem'
+import pathConfig from '@config/index'
 
 function Header() {
 
@@ -27,17 +28,17 @@ function Header() {
         }
     }, [])
 
-    const { isOpen, setIsOpen } = useContext(SidebarContext)
-
-    console.log('isOpen:', isOpen)
 
     return (
         <div className={clsx(styles.wrapper, { [styles.scrolled]: isScrolled })}>
             <Menu position='left' className={styles.menuLeft} />
             <div className={styles.brand}>
-                <LogoIcon />
+                <MenuItem
+                    to={pathConfig.routes.home}
+                    icon={<LogoIcon />}
+                />
             </div>
-            <Menu position='right' className={styles.menuRight} setIsOpen={setIsOpen} />
+            <Menu position='right' className={styles.menuRight} />
         </div>
     )
 }
