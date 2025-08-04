@@ -63,6 +63,9 @@ span {
 }
 
 .btn {
-  color: var(--primary);
   background-color: transparent;
+  padding: 0;
+  font: inherit;
+  color: var(--primary);
+  text-align: inherit;
 }

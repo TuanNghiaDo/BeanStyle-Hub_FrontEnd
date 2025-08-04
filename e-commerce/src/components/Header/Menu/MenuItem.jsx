@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import { useContext } from 'react'
 
 import { SidebarContext } from '@contexts/SidebarProvider'
-import { FacebookIcon, InstagramIcon, TiktokIcon, CartIcon, HeartIcon, LogoIcon, SyncIcon } from "@icons/Icons"
 import styles from './Menu.module.scss'
 
 function MenuItem({ icon, to, href, title, className, ...props }) {
