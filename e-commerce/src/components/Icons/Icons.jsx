@@ -452,10 +452,43 @@ export const SupportIcon = ({ width = '4rem', height = '4rem', className }) => (
 
 export const EyeIcon = ({ width = '30rem', height = '20rem', className }) => (
     <svg className={className} width={width} height={height} viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13 4.15039C16.8936 4.15039 20.391 6.21887 22.7207 9.5C20.391 12.7811 16.8936 14.8496 13 14.8496C9.10619 14.8496 5.60803 12.7814 3.27832 9.5C5.60803 6.2186 9.10619 4.15039 13 4.15039Z" stroke="black" strokeWidth="0.7" />
+        <path d="M13 4.15039C16.8936 4.15039 20.391 6.21887 22.7207 9.5C20.391 12.7811 16.8936 14.8496 13 14.8496C9.10619 14.8496 5.60803 12.7814 3.27832 9.5C5.60803 6.2186 9.10619 4.15039 13 4.15039Z"
+            stroke="black"
+            strokeWidth="0.7"
+        />
         <circle cx="12.75" cy="9.75" r="1.75" stroke="black" strokeWidth="0.7" />
     </svg>
 
+)
+
+export const EyeCloseIcon = ({ width = '30rem', height = '20rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 26 19"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M13 4.15039C16.8936 4.15039 20.391 6.21887 22.7207 9.5C20.391 12.7811 16.8936 14.8496 13 14.8496C9.10619 14.8496 5.60803 12.7814 3.27832 9.5C5.60803 6.2186 9.10619 4.15039 13 4.15039Z"
+            stroke="black"
+            strokeWidth="0.7"
+        />
+        <circle
+            cx="12.75"
+            cy="9.75"
+            r="1.75"
+            stroke="black"
+            strokeWidth="0.7"
+        />
+        <path
+            d="M4 4L22 15"
+            stroke="black"
+            strokeWidth="0.7"
+            strokeLinecap="round"
+        />
+    </svg>
 )
 
 export const CartIconStroked = ({

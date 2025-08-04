@@ -3,6 +3,7 @@ import styles from './Sidebar.module.scss'
 import { useContext } from 'react'
 import { SidebarContext } from '@contexts/SidebarProvider'
 import { CloseIcon } from '@icons/Icons'
+import Login from '@components/SidebarContent/Login/Login'
 function Sidebar() {
 
     const { isOpen, setIsOpen } = useContext(SidebarContext)
@@ -16,11 +17,13 @@ function Sidebar() {
             <div
                 className={clsx({ [styles.overlay]: isOpen })}
                 onClick={handleToggle}></div>
-            <div className={clsx(styles.sidebar, { [styles.slideSidebar]: isOpen })}>
+            <div
+                className={clsx(styles.sidebar, { [styles.slideSidebar]: isOpen })}
+            >
                 {isOpen && <div className={styles.closeIcon} onClick={handleToggle}>
                     <CloseIcon />
                 </div>}
-                sidebar
+                <Login />
             </div>
         </div >
     );
