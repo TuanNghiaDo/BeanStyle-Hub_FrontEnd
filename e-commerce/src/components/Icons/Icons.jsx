@@ -1,4 +1,4 @@
-export const LogoIcon = ({ width = '10rem', height = '10rem', className }) => (
+export const LogoIcon = ({ width = '10rem', height = '10rem', className, stroke = "currentColor" }) => (
     <svg
         className={className}
         version="1.0"
@@ -11,7 +11,7 @@ export const LogoIcon = ({ width = '10rem', height = '10rem', className }) => (
         <g
             transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
             fill="currentColor"
-            stroke="none">
+            stroke={stroke}>
             <path
                 d="M1932 9335 c-157 -29 -365 -117 -491 -210 -240 -177 -401 -424 -479
 -735 l-27 -105 -3 -3080 c-2 -2118 0 -3115 8 -3192 28 -296 133 -530 335 -740

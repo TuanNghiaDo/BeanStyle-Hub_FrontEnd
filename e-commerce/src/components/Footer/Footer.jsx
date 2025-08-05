@@ -10,7 +10,12 @@ import config from '@config/index';
 function Footer() {
     return (
         <div className={styles.wrapper}>
-            <LogoIcon width='15rem' height='15rem' />
+            <MenuItem
+                className={styles.logo}
+                to={config.routes.home}
+                icon={<LogoIcon width='15rem' height='15rem' />}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            />
             <div className={styles.nav}>
                 <MenuItem title="Trang chủ" to={config.routes.home} className={styles.menuItem} />
                 <MenuItem title="Mua sắm" to={config.routes.store} className={styles.menuItem} />

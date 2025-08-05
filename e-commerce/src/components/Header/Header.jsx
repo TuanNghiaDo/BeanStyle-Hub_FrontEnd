@@ -11,6 +11,13 @@ function Header() {
 
     const [isScrolled, setIsScrolled] = useState(false)
 
+    const handleBackToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
     useEffect(() => {
 
         const handleScroll = () => {
@@ -36,6 +43,7 @@ function Header() {
                 <MenuItem
                     to={pathConfig.routes.home}
                     icon={<LogoIcon />}
+                    onClick={handleBackToTop}
                 />
             </div>
             <Menu position='right' className={styles.menuRight} />
