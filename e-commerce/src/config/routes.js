@@ -8,6 +8,8 @@ const routes = {
     register: '/register',
     cart: '/cart',
     forgot_password: '/forgot-password',
+    compare: '/compare',
+    wish_list: '/wish-list',
 }
 
 export default routes

@@ -1,7 +1,15 @@
+import CommonWrapper from '@componentsSidebar/CommonWrapper.module.scss';
+import HeaderSidebar from '@componentsSidebar/HeaderSidebar/HeaderSidebar';
+import config from '@config/index';
+import { CartIcon } from '@icons/Icons';
 function Cart() {
     return (
-        <div>
-            <h2>Shopping Cart</h2>
+        <div className={CommonWrapper.wrapper}>
+            <HeaderSidebar
+                to={config.routes.cart}
+                icon={<CartIcon width={30} height={30} strokeWidth={0.8} />}
+                title="Shopping Cart"
+            />
             {/* Render cart items here */}
         </div>
     );

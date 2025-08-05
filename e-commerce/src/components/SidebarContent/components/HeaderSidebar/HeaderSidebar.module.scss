@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-bottom: 15px;
+
+    .headerContent {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: var(--thr_color);
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--sub_color);
+
+            transition: width 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+            width: 80%;
+        }
+    }
+
+    span {
+        text-transform: uppercase;
+        font-size: 1.8rem;
+    }
+}

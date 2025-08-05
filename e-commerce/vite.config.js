@@ -22,6 +22,7 @@ export default defineConfig({
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@api': path.resolve(__dirname, 'src/apis'),
       '@contexts': path.resolve(__dirname, 'src/contexts'),
+      '@componentsSidebar': path.resolve(__dirname, 'src/components/SidebarContent/components'),
     }
   }
 })
