@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import clsx from 'clsx'
 import { useContext } from 'react'
 
-import { SidebarContext } from '@contexts/SidebarProvider'
+import { SidebarContext } from '@contexts/index'
 import styles from './Menu.module.scss'
 
 function MenuItem({ icon, to, href, title, className, typeContentSidebar, ...props }) {

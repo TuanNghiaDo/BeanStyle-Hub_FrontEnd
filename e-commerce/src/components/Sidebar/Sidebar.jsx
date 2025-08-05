@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import styles from './Sidebar.module.scss'
 import { useContext } from 'react'
-import { SidebarContext } from '@contexts/SidebarProvider'
+import { SidebarContext } from '@contexts/index'
 import { CloseIcon } from '@icons/Icons'
 import Login from '@components/SidebarContent/Login/Login'
 import WishList from '@components/SidebarContent/WishList/WishList'
