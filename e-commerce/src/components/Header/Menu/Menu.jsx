@@ -59,6 +59,7 @@ function Menu({ className, position }) {
                     <MenuItem
                         className={clsx(styles.menuItem, styles.btn)}
                         title={NAV_TEXT.LOGIN}
+                        typeContentSidebar='login'
                     />
                 </div>
 
@@ -66,14 +67,17 @@ function Menu({ className, position }) {
                     <MenuItem
                         className={styles.btn}
                         icon={<SyncIconLarge />}
+                        typeContentSidebar='compare'
                     />
                     <MenuItem
                         className={styles.btn}
                         icon={<HeartIcon />}
+                        typeContentSidebar='wishList'
                     />
                     <MenuItem
                         className={styles.btn}
                         icon={<CartIcon />}
+                        typeContentSidebar='cart'
                     />
                 </div>
             </div >

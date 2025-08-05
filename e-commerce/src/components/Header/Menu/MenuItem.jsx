@@ -5,9 +5,9 @@ import { useContext } from 'react'
 import { SidebarContext } from '@contexts/SidebarProvider'
 import styles from './Menu.module.scss'
 
-function MenuItem({ icon, to, href, title, className, ...props }) {
+function MenuItem({ icon, to, href, title, className, typeContentSidebar, ...props }) {
 
-    const { isOpen, setIsOpen } = useContext(SidebarContext)
+    const { isOpen, setIsOpen, setType } = useContext(SidebarContext)
 
     let Component = 'button'
 
@@ -21,7 +21,11 @@ function MenuItem({ icon, to, href, title, className, ...props }) {
         _props.href = href
         Component = 'a'
     } else {
-        _props.onClick = () => setIsOpen(!isOpen)
+        _props.onClick = () => {
+            console.log('Click on MenuItem')
+            setIsOpen(!isOpen)
+            setType(typeContentSidebar)
+        }
     }
 
     if (Component === NavLink) {
