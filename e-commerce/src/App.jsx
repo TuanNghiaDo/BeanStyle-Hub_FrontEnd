@@ -10,10 +10,8 @@ function App() {
 
   return (
     <SidebarProvider>
-
-      <Sidebar />
-
       <Router>
+        <Sidebar />
         <div className="app">
           <Header />
           <main>
