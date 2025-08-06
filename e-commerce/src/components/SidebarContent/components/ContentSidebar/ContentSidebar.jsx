@@ -5,13 +5,6 @@ function ContentSidebar() {
         <div className={styles.wrapper}>
             <ItemProduct />
             <ItemProduct />
-            <ItemProduct />
-            <ItemProduct />
-            <ItemProduct />
-            <ItemProduct />
-            <ItemProduct />
-            <ItemProduct />
-            <ItemProduct />
         </div>
     );
 }
