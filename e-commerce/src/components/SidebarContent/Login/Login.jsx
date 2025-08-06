@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { Link } from "react-router-dom"
@@ -6,6 +7,8 @@ import styles from "./Login.module.scss"
 import Button from "@components/Button/Button"
 import config from "@config/index"
 function Login() {
+
+    const [isRegister, setIsRegister] = useState(false);
 
     const formik = useFormik({
         initialValues: {

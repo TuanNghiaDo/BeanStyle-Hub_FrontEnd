@@ -30,6 +30,10 @@
         }
     }
 
+    input.error {
+        border-color: red;
+    }
+
     .icon {
         position: absolute;
         top: 50%;
@@ -42,11 +46,22 @@
     }
 }
 
+
 .error {
+    
+    .label {
+        color: red;
+    }
+    
+    input {
+        border-color: red;
+    }
+}
+
+.errorMessage {
     color: red;
     font-size: 1.2rem;
 }
-
 
 
 

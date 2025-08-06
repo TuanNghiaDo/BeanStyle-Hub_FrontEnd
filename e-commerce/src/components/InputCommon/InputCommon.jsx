@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import clsx from 'clsx'
 
 import styles from './InputCommon.module.scss';
 import { EyeIcon, EyeCloseIcon } from '@icons/Icons';
@@ -15,7 +16,7 @@ function InputCommon({ label, type, isRequired = false, error, ...props }) {
     const isPassword = type === 'password';
 
     return (
-        <div className={styles.wrapper}>
+        <div className={clsx(styles.wrapper, { [styles.error]: error })}>
             <div
                 className={styles.label}
             >
@@ -34,7 +35,7 @@ function InputCommon({ label, type, isRequired = false, error, ...props }) {
                 )}
             </div>
             {error && (
-                <span className={styles.error}>{error}</span>
+                <span className={styles.errorMessage}>{error}</span>
             )}
         </div>
     );
