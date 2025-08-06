@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { Link } from "react-router-dom"
 import clsx from "clsx"
+
+import { ToastContext } from "@contexts/index"
 import InputCommon from "@components/InputCommon/InputCommon"
 import styles from "./Login.module.scss"
 import Button from "@components/Button/Button"
@@ -10,6 +12,8 @@ import config from "@config/index"
 function Login() {
 
     const [isRegister, setIsRegister] = useState(false);
+
+    const { toast } = useContext(ToastContext);
 
     const handleToggle = () => {
         setIsRegister(!isRegister);
@@ -89,6 +93,9 @@ function Login() {
                     title={isRegister ? "Đăng ký" : "Đăng nhập"}
                     className={styles.loginBtn}
                     type="submit"
+                    onClick={() => {
+                        toast.success(isRegister ? "Đăng ký thành công!" : "Đăng nhập thành công!");
+                    }}
                 />
 
             </form>
