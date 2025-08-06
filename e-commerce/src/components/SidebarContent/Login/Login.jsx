@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { Link } from "react-router-dom"
+import clsx from "clsx"
 import InputCommon from "@components/InputCommon/InputCommon"
 import styles from "./Login.module.scss"
 import Button from "@components/Button/Button"
@@ -10,10 +11,16 @@ function Login() {
 
     const [isRegister, setIsRegister] = useState(false);
 
+    const handleToggle = () => {
+        setIsRegister(!isRegister);
+        formik.resetForm();
+    }
+
     const formik = useFormik({
         initialValues: {
             email: '',
             password: '',
+            confirmPassword: ''
         },
         validationSchema: Yup.object({
             email: Yup.string()
@@ -22,6 +29,9 @@ function Login() {
             password: Yup.string()
                 .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
                 .required("Mật khẩu là bắt buộc"),
+            confirmPassword: isRegister ? Yup.string()
+                .oneOf([Yup.ref('password'), null], 'Mật khẩu xác nhận không khớp')
+                .required('Xác nhận mật khẩu là bắt buộc') : Yup.string().notRequired(),
         }),
         onSubmit: (values) => {
             console.log("Form submitted with values:", values);
@@ -32,7 +42,7 @@ function Login() {
 
     return (
         <div className={styles.wrapper}>
-            <h2>Sign In</h2>
+            <h2>{isRegister ? "Đăng ký" : "Đăng nhập"}</h2>
             <form onSubmit={formik.handleSubmit}>
                 <InputCommon
                     id="email"
@@ -41,7 +51,7 @@ function Login() {
                     isRequired
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
-                    value={formik.values.id}
+                    value={formik.values.email}
                     error={formik.errors.email && formik.touched.email ? formik.errors.email : undefined}
                 />
 
@@ -54,26 +64,47 @@ function Login() {
                     isRequired
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
-                    value={formik.values.id}
+                    value={formik.values.password}
                     error={formik.errors.password && formik.touched.password ? formik.errors.password : undefined}
                 />
 
-                <div className={styles.rememberMe}>
+                {isRegister && (
+                    <InputCommon
+                        id="confirmPassword"
+                        label="Xác nhận mật khẩu"
+                        type="text"
+                        isRequired
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.confirmPassword}
+                        error={formik.errors.confirmPassword && formik.touched.confirmPassword ? formik.errors.confirmPassword : undefined}
+                    />
+                )}
+
+                {!isRegister && (<div className={styles.rememberMe}>
                     <input type="checkbox" />
                     <span>Nhớ tài khoản và mật khẩu</span>
-                </div>
+                </div>)}
                 <Button
-                    title="Đăng nhập"
+                    title={isRegister ? "Đăng ký" : "Đăng nhập"}
                     className={styles.loginBtn}
                     type="submit"
                 />
+
             </form>
-            <Link
+            <Button
+                secondary
+                title={isRegister ? "Đã có tài khoản?" : "Chưa có tài khoản?"}
+                className={clsx(styles.loginBtn, styles.registerBtn)}
+                onClick={handleToggle}
+            />
+
+            {!isRegister && (<Link
                 to={config.routes.forgot_password}
                 className={styles.forgotPassword}
             >
                 <span>Quên mật khẩu?</span>
-            </Link>
+            </Link>)}
         </div>
     )
 }
