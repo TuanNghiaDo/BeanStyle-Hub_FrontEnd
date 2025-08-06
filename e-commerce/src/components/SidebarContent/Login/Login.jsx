@@ -9,9 +9,12 @@ import InputCommon from "@components/InputCommon/InputCommon"
 import styles from "./Login.module.scss"
 import Button from "@components/Button/Button"
 import config from "@config/index"
+import { register } from "@api/authService"
 function Login() {
 
     const [isRegister, setIsRegister] = useState(false);
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const { toast } = useContext(ToastContext);
 
@@ -37,8 +40,23 @@ function Login() {
                 .oneOf([Yup.ref('password'), null], 'Mật khẩu xác nhận không khớp')
                 .required('Xác nhận mật khẩu là bắt buộc') : Yup.string().notRequired(),
         }),
-        onSubmit: (values) => {
-            console.log("Form submitted with values:", values);
+        onSubmit: async (values) => {
+            if (isLoading) return
+            if (isRegister) {
+                const { email: username, password } = values;
+                setIsLoading(true);
+                await register({ username, password })
+                    .then((res) => {
+                        toast.success(res.data.message);
+                        setIsLoading(false);
+                        formik.resetForm();
+                        setIsRegister(false);
+                    })
+                    .catch((error) => {
+                        toast.error(error.response.data.message);
+                        setIsLoading(false);
+                    });
+            }
         },
     })
 
@@ -90,12 +108,9 @@ function Login() {
                     <span>Nhớ tài khoản và mật khẩu</span>
                 </div>)}
                 <Button
-                    title={isRegister ? "Đăng ký" : "Đăng nhập"}
+                    title={isLoading ? "Đang xử lý..." : isRegister ? "Đăng ký" : "Đăng nhập"}
                     className={styles.loginBtn}
                     type="submit"
-                    onClick={() => {
-                        toast.success(isRegister ? "Đăng ký thành công!" : "Đăng nhập thành công!");
-                    }}
                 />
 
             </form>
