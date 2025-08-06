@@ -1,0 +1,44 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &:hover {
+        background-color: #f7f7f7;
+
+        .closeIcon {
+            visibility: visible;
+            transform: translateX(0);
+        }
+    }
+}
+
+.inforProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    margin-left: 10px;
+    gap: 6px;
+
+    p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 200px;
+    }
+}
+
+.closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    visibility: hidden;
+    transform: translateX(24px);
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}

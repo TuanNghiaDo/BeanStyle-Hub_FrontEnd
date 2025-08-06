@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { useState, forwardRef } from 'react'
 
-import images from '@images/'
+import images from '@images/index'
 import styles from './Image.module.scss'
 
 function Image({ src, alt, className, fallback: customFallback = images.noImage, ...props }, ref) {
