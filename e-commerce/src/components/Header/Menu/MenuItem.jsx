@@ -22,7 +22,6 @@ function MenuItem({ icon, to, href, title, className, typeContentSidebar, ...pro
         Component = 'a'
     } else {
         _props.onClick = () => {
-            console.log('Click on MenuItem')
             setIsOpen(!isOpen)
             setType(typeContentSidebar)
         }

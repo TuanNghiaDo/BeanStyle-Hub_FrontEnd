@@ -10,6 +10,7 @@ function WishList() {
                 icon={<HeartIcon width={32} height={32} strokeWidth={0.6} />}
                 title="Wish List"
             />
+
         </div>
     );
 }

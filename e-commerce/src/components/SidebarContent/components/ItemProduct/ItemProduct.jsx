@@ -1,7 +1,9 @@
 import styles from './ItemProduct.module.scss';
 import Image from '@components/Image/Image';
 import { CloseIcon } from '@icons/Icons';
-function ItemProduct({ image = '', name = 'No Name', price = 0 }) {
+function ItemProduct({ image = '', name = 'No Name', size = 'M', price = 200, amount = 1, code = '0000' }) {
+
+
     return (
         <div className={styles.wrapper}>
             <Image
@@ -12,7 +14,9 @@ function ItemProduct({ image = '', name = 'No Name', price = 0 }) {
             />
             <div className={styles.inforProduct}>
                 <p className={styles.productName}>{name}</p>
-                <span>{price}k</span>
+                <span className={styles.productSize}>Size: {size}</span>
+                <span>Giá: {amount} x {price}k</span>
+                <span className={styles.productCode}>Code: {code}</span>
             </div>
             <CloseIcon
                 width={12}

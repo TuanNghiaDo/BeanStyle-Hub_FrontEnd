@@ -1,7 +1,8 @@
 import { useState } from 'react'
+
 import styles from './InputCommon.module.scss';
 import { EyeIcon, EyeCloseIcon } from '@icons/Icons';
-function InputCommon({ label, type, isRequired = false }) {
+function InputCommon({ label, type, isRequired = false, error, ...props }) {
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -22,7 +23,7 @@ function InputCommon({ label, type, isRequired = false }) {
                 {isRequired && <span>*</span>}
             </div>
             <div className={styles.wrapInput}>
-                <input type={inputType} />
+                <input type={inputType} {...props} />
                 {isPassword && (
                     <div
                         className={styles.icon}
@@ -32,6 +33,9 @@ function InputCommon({ label, type, isRequired = false }) {
                     </div>
                 )}
             </div>
+            {error && (
+                <span className={styles.error}>{error}</span>
+            )}
         </div>
     );
 }

@@ -7,7 +7,8 @@ function Button(
         secondary,
         medium,
         large,
-        className
+        className,
+        ...props
     }) {
 
     const classes = clsx(
@@ -21,7 +22,7 @@ function Button(
         }
     )
     return (
-        <button className={classes}>{title}</button>
+        <button className={classes} {...props}>{title}</button>
     );
 }
 
