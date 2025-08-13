@@ -1,9 +1,10 @@
+import clsx from "clsx"
 import styles from "./CountDownBanner.module.scss";
 import CountdownTimer from "@components/CountDownTimer/CountDownTimer";
 import Button from "@components/Button/Button";
-function CountDownBanner({ targetDate }) {
+function CountDownBanner({ targetDate, className }) {
     return (
-        <div className={styles.wrapper}>
+        <div className={clsx(styles.wrapper, className)}>
             <div className={styles.containerTimer}>
                 <CountdownTimer targetDate={targetDate} />
             </div>

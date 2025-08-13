@@ -61,11 +61,24 @@ function Menu({ className, position }) {
                         title={NAV_TEXT.SEARCH}
                     />
                     {userInfo ? (
-                        <MenuItem
-                            className={clsx(styles.menuItem, styles.btn)}
-                            title={NAV_TEXT.LOGOUT}
-                            onClick={handleLogout}
-                        />
+                        <div className={styles.userMenuContainer}>
+                            <div className={clsx(styles.menuItem, styles.userGreeting)}>
+                                <span>{`Xin chào, ${userInfo.username}`}</span>
+                            </div>
+
+                            <div className={styles.userDropdown}>
+                                <MenuItem
+                                    className={styles.dropdownItem}
+                                    title="Tài khoản của tôi"
+                                    to={pathConfig.routes.account}
+                                />
+                                <MenuItem
+                                    className={styles.dropdownItem}
+                                    title="Đăng xuất"
+                                    onClick={handleLogout}
+                                />
+                            </div>
+                        </div>
                     ) : (
                         <MenuItem
                             className={clsx(styles.menuItem, styles.btn)}

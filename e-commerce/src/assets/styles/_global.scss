@@ -42,9 +42,9 @@ body {
 }
 
 main {
-    flex: 1; /* Đây là dòng quan trọng nhất */
-             /* Nó ra lệnh cho <main> chiếm lấy toàn bộ không gian dọc còn lại,
-                đẩy <Footer> xuống dưới cùng */
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 a[href] {

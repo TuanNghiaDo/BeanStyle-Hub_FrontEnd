@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import clsx from "clsx"
 import Cookies from "js-cookie"
 
-import { ToastContext } from "@contexts/index"
+import { ToastContext, StoreContext, SidebarContext } from "@contexts/index"
 import InputCommon from "@components/InputCommon/InputCommon"
 import styles from "./Login.module.scss"
 import Button from "@components/Button/Button"
@@ -18,6 +18,8 @@ function Login() {
     const [isLoading, setIsLoading] = useState(false);
 
     const { toast } = useContext(ToastContext);
+    const { setUserInfo } = useContext(StoreContext);
+    const { setIsOpen } = useContext(SidebarContext);
 
 
     const handleToggle = () => {
@@ -71,6 +73,8 @@ function Login() {
                         Cookies.set('userId', id)
                         Cookies.set('refreshToken', refreshToken)
                         formik.resetForm();
+                        setUserInfo(res.data);
+                        setIsOpen(false);
                         console.log(res)
                     })
                     .catch((error) => {

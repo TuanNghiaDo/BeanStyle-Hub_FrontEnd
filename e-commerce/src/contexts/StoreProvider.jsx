@@ -8,10 +8,8 @@ function StoreProvider({ children }) {
 
     const userId = Cookies.get('userId');
 
-    console.log(userId)
 
     const handleLogout = () => {
-        console.log("Logout")
         Cookies.remove('token');
         Cookies.remove('refreshToken');
         Cookies.remove('userId');
@@ -23,6 +21,7 @@ function StoreProvider({ children }) {
             getInfo(userId)
                 .then((res) => {
                     setUserInfo(res.data.data);
+                    console.log("User info fetched successfully:", userInfo);
                 })
                 .catch((error) => {
                     console.error("Failed to fetch user info:", error);
@@ -30,7 +29,7 @@ function StoreProvider({ children }) {
         }
     }, [userId])
 
-    console.log("User Info:", userInfo)
+
     return (
         <StoreContext.Provider value={{ userInfo, handleLogout, setUserInfo }}>
             {children}

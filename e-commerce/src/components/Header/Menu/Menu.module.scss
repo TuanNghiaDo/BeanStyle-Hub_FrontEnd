@@ -69,3 +69,54 @@ span {
   color: var(--primary);
   text-align: inherit;
 }
+
+
+// Thêm các style mới này vào cuối file của bạn
+
+.userMenuContainer {
+    position: relative; // Quan trọng: Làm "mốc" cho dropdown định vị theo
+    cursor: pointer;
+}
+
+.userGreeting {
+    display: flex;
+    align-items: center;
+    gap: 4px; // Tạo khoảng cách giữa chữ và icon mũi tên (nếu có)
+}
+
+.userDropdown {
+    display: none; // Ẩn menu dropdown đi mặc định
+    position: absolute; // Định vị tuyệt đối so với .userMenuContainer
+    top: 100%; // Đặt ngay bên dưới container
+    left: 0;
+    background-color: #fff; // Màu nền cho dropdown
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 180px; // Độ rộng tối thiểu cho dropdown
+    z-index: 100; // Đảm bảo nó nổi lên trên các phần tử khác
+    padding: 8px 0; // Thêm padding cho đẹp
+}
+
+// Hiệu ứng HOVER: Khi hover vào container...
+.userMenuContainer:hover {
+    // ... thì hiển thị dropdown
+    .userDropdown {
+        display: block;
+    }
+}
+
+// Style cho từng mục trong dropdown
+.dropdownItem {
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #333;
+    background-color: transparent; // Nền trong suốt
+    border: none; // Bỏ viền của button
+
+    &:hover {
+        background-color: #f5f5f5; // Thêm hiệu ứng hover cho từng mục
+    }
+}
