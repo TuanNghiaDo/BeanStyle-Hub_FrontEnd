@@ -18,7 +18,7 @@ function Login() {
     const [isLoading, setIsLoading] = useState(false);
 
     const { toast } = useContext(ToastContext);
-    const { setUserInfo } = useContext(StoreContext);
+    const { fetchUserInfo } = useContext(StoreContext);
     const { setIsOpen } = useContext(SidebarContext);
 
 
@@ -73,7 +73,7 @@ function Login() {
                         Cookies.set('userId', id)
                         Cookies.set('refreshToken', refreshToken)
                         formik.resetForm();
-                        setUserInfo(res.data);
+                        fetchUserInfo();
                         setIsOpen(false);
                         console.log(res)
                     })
