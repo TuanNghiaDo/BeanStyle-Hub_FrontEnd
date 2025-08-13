@@ -5,13 +5,24 @@ import { useContext } from 'react'
 import { SidebarContext } from '@contexts/index'
 import styles from './Menu.module.scss'
 
-function MenuItem({ icon, to, href, title, className, typeContentSidebar, ...props }) {
+function MenuItem({ icon, to, href, title, className, typeContentSidebar, onClick, ...props }) {
 
     const { isOpen, setIsOpen, setType } = useContext(SidebarContext)
 
     let Component = 'button'
 
     const _props = { ...props }
+
+    const handleCombinedClick = (event) => {
+        if (onClick) {
+            onClick(event)
+        }
+
+        if (typeContentSidebar) {
+            setIsOpen(!isOpen)
+            setType(typeContentSidebar)
+        }
+    }
 
     if (to) {
         _props.to = to
@@ -21,10 +32,7 @@ function MenuItem({ icon, to, href, title, className, typeContentSidebar, ...pro
         _props.href = href
         Component = 'a'
     } else {
-        _props.onClick = () => {
-            setIsOpen(!isOpen)
-            setType(typeContentSidebar)
-        }
+        _props.onClick = handleCombinedClick
     }
 
     if (Component === NavLink) {

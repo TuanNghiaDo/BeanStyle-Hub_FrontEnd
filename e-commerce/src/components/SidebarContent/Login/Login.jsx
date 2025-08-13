@@ -3,13 +3,14 @@ import { useFormik } from "formik"
 import * as Yup from "yup"
 import { Link } from "react-router-dom"
 import clsx from "clsx"
+import Cookies from "js-cookie"
 
 import { ToastContext } from "@contexts/index"
 import InputCommon from "@components/InputCommon/InputCommon"
 import styles from "./Login.module.scss"
 import Button from "@components/Button/Button"
 import config from "@config/index"
-import { register } from "@api/authService"
+import { register, login } from "@api/authService"
 function Login() {
 
     const [isRegister, setIsRegister] = useState(false);
@@ -17,6 +18,7 @@ function Login() {
     const [isLoading, setIsLoading] = useState(false);
 
     const { toast } = useContext(ToastContext);
+
 
     const handleToggle = () => {
         setIsRegister(!isRegister);
@@ -42,9 +44,10 @@ function Login() {
         }),
         onSubmit: async (values) => {
             if (isLoading) return
+            const { email: username, password } = values;
+            setIsLoading(true);
             if (isRegister) {
-                const { email: username, password } = values;
-                setIsLoading(true);
+
                 await register({ username, password })
                     .then((res) => {
                         toast.success(res.data.message);
@@ -57,10 +60,27 @@ function Login() {
                         setIsLoading(false);
                     });
             }
+
+            if (!isRegister) {
+                await login({ username, password })
+                    .then((res) => {
+                        toast.success(res.data.message);
+                        setIsLoading(false);
+                        const { id, token, refreshToken } = res.data;
+                        Cookies.set('token', token)
+                        Cookies.set('userId', id)
+                        Cookies.set('refreshToken', refreshToken)
+                        formik.resetForm();
+                        console.log(res)
+                    })
+                    .catch((error) => {
+                        toast.error(error.response.data.message);
+                        setIsLoading(false);
+                    });
+            }
         },
     })
 
-    console.log(formik.errors)
 
     return (
         <div className={styles.wrapper}>
@@ -111,6 +131,9 @@ function Login() {
                     title={isLoading ? "Đang xử lý..." : isRegister ? "Đăng ký" : "Đăng nhập"}
                     className={styles.loginBtn}
                     type="submit"
+                    onClick={() => {
+                        toast.success(isRegister ? "Đăng ký thành công!" : "Đăng nhập thành công!");
+                    }}
                 />
 
             </form>

@@ -1,12 +1,16 @@
+import { useContext } from 'react'
+
 import clsx from 'clsx'
 import MenuItem from './MenuItem'
 import styles from './Menu.module.scss'
 import pathConfig from '@config/index'
 import { NAV_TEXT } from '@constants/text'
 import { FacebookIcon, InstagramIcon, TiktokIcon, HeartIcon, CartIcon, SyncIconLarge } from '@icons/Icons'
-
+import { StoreContext } from '@/contexts/index'
 function Menu({ className, position }) {
 
+    const { userInfo, handleLogout } = useContext(StoreContext)
+    // console.log(userInfo)
     if (position === 'left') {
         return (
             <div className={className} >
@@ -56,11 +60,19 @@ function Menu({ className, position }) {
                         className={clsx(styles.menuItem, styles.btn)}
                         title={NAV_TEXT.SEARCH}
                     />
-                    <MenuItem
-                        className={clsx(styles.menuItem, styles.btn)}
-                        title={NAV_TEXT.LOGIN}
-                        typeContentSidebar='login'
-                    />
+                    {userInfo ? (
+                        <MenuItem
+                            className={clsx(styles.menuItem, styles.btn)}
+                            title={NAV_TEXT.LOGOUT}
+                            onClick={handleLogout}
+                        />
+                    ) : (
+                        <MenuItem
+                            className={clsx(styles.menuItem, styles.btn)}
+                            title={NAV_TEXT.LOGIN}
+                            typeContentSidebar='login'
+                        />
+                    )}
                 </div>
 
                 <div className={styles.actionIcons}>

@@ -5,6 +5,7 @@ export const NAV_TEXT = {
     CONTACT: 'Liên hệ',
     BLOG: 'Bài viết',
     LOGIN: 'Đăng nhập',
+    LOGOUT: 'Đăng xuất',
     REGISTER: 'Đăng ký',
     CART: 'Giỏ hàng',
     SEARCH: 'Tìm kiếm',
