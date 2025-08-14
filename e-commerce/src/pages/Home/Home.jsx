@@ -14,8 +14,14 @@ function Home() {
 
     const [listProduct, setListProduct] = useState([]);
 
+    const query = {
+        sortType: '0',
+        page: 1,
+        limit: 10
+    }
+
     useEffect(() => {
-        getProducts()
+        getProducts(query)
             .then(data => {
                 setListProduct(data.contents);
             })

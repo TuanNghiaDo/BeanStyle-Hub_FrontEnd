@@ -2,9 +2,10 @@ import { useContext } from 'react'
 import styles from './Filter.module.scss'
 import { OurShopContext } from '@contexts/index'
 import { GridIcon, ListIcon } from '@icons/Icons'
+
 function Filter() {
 
-    const { sortOptions, showOptions, sortId, setSortId, showId, setShowId, showGrid, setShowGrid } = useContext(OurShopContext);
+    const { sortOptions, showOptions, setSortId, setShowId, setShowGrid } = useContext(OurShopContext);
 
     const handleSortChange = (e) => {
         setSortId(e.target.value);
@@ -22,9 +23,9 @@ function Filter() {
         setShowGrid(false);
     }
 
-    console.log('Sort By: ', sortId);
-    console.log('Show Count: ', showId);
-    console.log('Show Grid: ', showGrid);
+    // console.log('Sort By: ', sortId);
+    // console.log('Show Count: ', showId);
+    // console.log('Show Grid: ', showGrid);
 
     return (
         <div className={styles.wrapper}>

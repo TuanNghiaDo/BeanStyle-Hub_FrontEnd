@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import clsx from 'clsx'
 
 import Image from '@components/Image/Image';
 import SidebarProductItem from '@components/SidebarProductItem/SidebarProductItem';
 import styles from './ProductItem.module.scss';
+import Button from '@components/Button/Button';
 
 
 function ProductItem({
@@ -11,12 +13,17 @@ function ProductItem({
     price,
     // des,
     // type,
-    // size,
+    sizes,
     // material,
     images,
+    btnTitle
 }) {
+
+    const [sizeSelected, setSizeSelected] = useState(sizes?.[0]?.name);
+
+
     return (
-        <div className={styles.wrapper}>
+        <div className={clsx(styles.wrapper)}>
             <Link to={'/'} className={styles.link}>
                 <Image
                     className={styles.imageProduct}
@@ -30,6 +37,25 @@ function ProductItem({
                 <h2 className={styles.productName}>{name}</h2>
             </Link>
             <span className={styles.price}>${price}</span>
+            {sizes && (
+                <div className={styles.sizeWrapper}>
+                    {sizes.map((item, index) => (
+                        <button
+                            key={index}
+                            className={`${styles.sizeBtn} ${sizeSelected === item.name ? styles.active : ''}`}
+                            onClick={() => setSizeSelected(item)}
+                        >
+                            {item.name}
+                        </button>
+                    ))}
+                </div>
+            )}
+            {btnTitle && (
+                <Button
+                    title={btnTitle}
+                    className={styles.btnAddToCart}
+                />
+            )}
         </div>
     );
 }
