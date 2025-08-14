@@ -4,11 +4,11 @@ import { OurShopContext } from '@contexts/index'
 export const OurShopProvider = ({ children }) => {
 
     const sortOptions = [
-        { value: '0', label: 'Mac dinh' },
-        { value: '1', label: 'Pho bien' },
-        { value: '2', label: 'Danh gia' },
-        { value: '3', label: 'Gia: thap den cao' },
-        { value: '4', label: 'Gia: cao den thap' },
+        { value: '0', label: 'Mặc định' },
+        { value: '1', label: 'Phổ biến' },
+        { value: '2', label: 'Đánh giá' },
+        { value: '3', label: 'Giá: thấp đến cao' },
+        { value: '4', label: 'Giá: cao đến thấp' },
     ]
 
     const showOptions = [
@@ -17,11 +17,23 @@ export const OurShopProvider = ({ children }) => {
         { label: 'All', value: 'All' },
     ]
 
+    const [sortId, setSortId] = useState('0');
+
+    const [showId, setShowId] = useState('8');
+
+    const [showGrid, setShowGrid] = useState(true);
+
     const values = {
         sortOptions,
-        showOptions
-
+        showOptions,
+        sortId,
+        setSortId,
+        showId,
+        setShowId,
+        showGrid,
+        setShowGrid
     }
+
 
     return (
         <OurShopContext.Provider value={values}>
