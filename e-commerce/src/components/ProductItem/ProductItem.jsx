@@ -42,7 +42,7 @@ function ProductItem({
                 <SidebarProductItem className={styles.sidebarProductItem} />
 
             </Link>
-            <div className={styles.productContent}>
+            <div className={clsx({ [styles.productContent]: showGrid && btnTitle })}>
                 <Link to={'/'}>
                     <h2
                         className={styles.productName}

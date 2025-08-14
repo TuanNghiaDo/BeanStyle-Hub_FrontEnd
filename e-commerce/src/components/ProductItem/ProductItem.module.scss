@@ -12,26 +12,38 @@
 }
 
 .link {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
 
-        &:hover {
+    &:hover {
 
-            .imageProductHover {
-                opacity: 1;
-            }
+        .imageProductHover {
+            opacity: 1;
+        }
 
-            .sidebarProductItem {
-               opacity: 1;
-                visibility: visible;
-                transform: translateX(0);
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
+        .sidebarProductItem {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
     }
+}
+
+.productContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        margin: 6px 0 0 0;
+    }
+}
+
 .imageProductHover {
     position: absolute;
     top: 0;
