@@ -1,12 +1,22 @@
-.wrapper {
-    width: 100%;
+.wrapperVertical {
 
-    .link {
+    
+}
+
+.wrapperHorizontal {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+}
+
+.link {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 100%;
+        
 
         &:hover {
 
@@ -22,8 +32,6 @@
             }
         }
     }
-}
-
 .imageProductHover {
     position: absolute;
     top: 0;
@@ -33,8 +41,6 @@
 }
 
 .imageProduct {
-    width: 100%;
-    height: 356px;
     object-fit: cover;
 }
 
@@ -89,3 +95,4 @@
     font-size: 1.4rem;
     font-weight: 300;
 }
+

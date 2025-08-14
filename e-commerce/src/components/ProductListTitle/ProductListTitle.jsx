@@ -16,6 +16,7 @@ function ProductListTitle({ products }) {
                         name={product.name}
                         price={product.price}
                         images={product.images}
+                        showGrid={true}
                     />
                 ))}
             </div>

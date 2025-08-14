@@ -1,7 +1,15 @@
-.wrapper {
+.wrapperGrid {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
     margin: 30px auto 0;
+}
+
+.wrapperList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }

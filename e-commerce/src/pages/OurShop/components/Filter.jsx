@@ -16,6 +16,7 @@ function Filter() {
     }
 
     const handleShowGrid = () => {
+        console.log('Da Click vao Button showGrid')
         setShowGrid(true);
     }
 

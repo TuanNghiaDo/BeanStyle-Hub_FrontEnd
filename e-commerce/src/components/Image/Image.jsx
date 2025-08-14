@@ -4,7 +4,7 @@ import { useState, forwardRef } from 'react'
 import images from '@images/index'
 import styles from './Image.module.scss'
 
-function Image({ src, alt, className, fallback: customFallback = images.noImage, ...props }, ref) {
+function Image({ src, alt, className, fallback: customFallback = images.noImage, width = '100%', height = '356px', ...props }, ref) {
 
     const [fallback, setFallback] = useState('');
 
@@ -19,6 +19,8 @@ function Image({ src, alt, className, fallback: customFallback = images.noImage,
             alt={alt}
             {...props}
             onError={handleError}
+            width={width}
+            height={height}
         />
     );
 }
