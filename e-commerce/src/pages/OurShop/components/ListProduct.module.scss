@@ -13,3 +13,29 @@
     align-items: flex-start;
     gap: 20px;
 }
+
+.btnSeeMore {
+    padding: 10px 20px;
+    font-weight: 300;
+    font-size: 1.6rem;
+    margin-top: 60px;
+
+    &:disabled {
+        background-color: var(--primary);
+        width: 117px;
+        height: 38px;
+    }
+}
+
+.loading {
+    animation: rotate 0.7s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
