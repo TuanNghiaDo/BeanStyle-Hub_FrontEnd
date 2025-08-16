@@ -3,7 +3,8 @@ import { OurShopContext } from '@contexts/index'
 import ProductItem from '@components/ProductItem/ProductItem'
 import styles from './ListProduct.module.scss'
 import Button from '@components/Button/Button'
-import { LoadingIcon } from '@icons/Icons'
+import LoadingButton from '@components/LoadingButton/LoadingButton'
+
 function ListProduct() {
     const { products, showGrid, loading, handleLoadMore, total, loadMore } = useContext(OurShopContext)
 
@@ -21,6 +22,7 @@ function ListProduct() {
                         products.map((product) => (
                             <ProductItem
                                 key={product._id}
+                                id={product._id}
                                 name={product.name}
                                 price={product.price}
                                 images={product.images}
@@ -35,7 +37,7 @@ function ListProduct() {
                 {products.length < total && (
                     <Button
                         className={styles.btnSeeMore}
-                        title={loadMore ? <LoadingIcon color="white" className={styles.loading} /> : 'Xem thêm'}
+                        title={loadMore ? <LoadingButton /> : 'Xem thêm'}
                         onClick={handleLoadMore}
                         disabled={loadMore}
                     />

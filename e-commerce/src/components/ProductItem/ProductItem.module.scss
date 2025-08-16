@@ -106,5 +106,9 @@
     padding: 10px 20px;
     font-size: 1.4rem;
     font-weight: 300;
+
+    &:disabled {
+        background-color: var(--primary);
+    }
 }
 

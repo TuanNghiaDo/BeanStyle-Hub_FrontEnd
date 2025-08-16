@@ -92,7 +92,6 @@ export const OurShopProvider = ({ children }) => {
             })
     }, [sortId, showId])
 
-    console.log(total)
 
     return (
         <OurShopContext.Provider value={values}>

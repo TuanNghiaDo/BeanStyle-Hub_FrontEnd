@@ -1,28 +1,41 @@
+import Cookies from 'js-cookie'
 import clsx from 'clsx'
 import styles from './Sidebar.module.scss'
 import { useContext } from 'react'
-import { SidebarContext } from '@contexts/index'
+import { SidebarContext, StoreContext } from '@contexts/index'
 import { CloseIcon } from '@icons/Icons'
 import Login from '@components/SidebarContent/Login/Login'
 import WishList from '@components/SidebarContent/WishList/WishList'
 import Cart from '@components/SidebarContent/Cart/Cart'
 import Compare from '@components/SidebarContent/Compare/Compare'
+
 function Sidebar() {
 
     const { isOpen, setIsOpen, type } = useContext(SidebarContext)
 
+    const { cart, userInfo } = useContext(StoreContext)
+
+    console.log(userInfo)
+
+    const userId = userInfo?.id
+
     const handleToggle = () => {
         setIsOpen(!isOpen)
     }
+
 
     const handleRenderContent = () => {
         switch (type) {
             case 'login':
                 return <Login />
             case 'wishList':
-                return <WishList />
+                if (userId) return <WishList />
+                else return <Login />
             case 'cart':
-                return <Cart />
+                if (userId) {
+                    return <Cart cart={cart} />
+                }
+                else return <Login />
             case 'compare':
                 return <Compare />
             default:
