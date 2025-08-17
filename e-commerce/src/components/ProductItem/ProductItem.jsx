@@ -29,7 +29,7 @@ function ProductItem({
 
     const { setIsOpen, setType } = useContext(SidebarContext)
 
-    const { handleGetCart } = useContext(StoreContext)
+    const { fetchCart } = useContext(StoreContext)
 
     const { toast } = useContext(ToastContext);
 
@@ -65,7 +65,7 @@ function ProductItem({
                 setIsOpen(true);
                 setType('cart');
                 setLoading(false);
-                handleGetCart();
+                fetchCart();
                 toast.success('Thêm vào giỏ hàng thành công!')
 
             })
