@@ -7,7 +7,7 @@ import Image from '@components/Image/Image';
 import SidebarProductItem from '@components/SidebarProductItem/SidebarProductItem';
 import styles from './ProductItem.module.scss';
 import Button from '@components/Button/Button';
-import { SidebarContext, ToastContext } from '@contexts/index';
+import { SidebarContext, ToastContext, StoreContext } from '@contexts/index';
 import { addToCart } from '@api/cartService';
 import LoadingButton from '@components/LoadingButton/LoadingButton';
 
@@ -27,7 +27,9 @@ function ProductItem({
 
     const userId = Cookies.get('userId');
 
-    const { setIsOpen, setType, handleGetCart } = useContext(SidebarContext)
+    const { setIsOpen, setType } = useContext(SidebarContext)
+
+    const { handleGetCart } = useContext(StoreContext)
 
     const { toast } = useContext(ToastContext);
 
@@ -55,6 +57,8 @@ function ProductItem({
             quantity: 1,
             size: sizeSelected
         }
+
+        console.log(data)
 
         addToCart(data)
             .then(() => {

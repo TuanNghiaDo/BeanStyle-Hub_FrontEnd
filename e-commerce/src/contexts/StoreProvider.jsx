@@ -50,8 +50,11 @@ function StoreProvider({ children }) {
             setUserInfo(res.data.data);
         } catch (error) {
             console.error("Failed to fetch user info:", error);
+            if (error.response && error.response.status === 401) {
+                handleLogout();
+            }
         }
-    }, []);
+    }, [handleLogout]);
 
     useEffect(() => {
         fetchUserInfo();

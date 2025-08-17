@@ -5,6 +5,7 @@ import config from '@config/index';
 import { CartIcon } from '@icons/Icons';
 import styles from './Cart.module.scss';
 import ItemProduct from '../components/ItemProduct/ItemProduct';
+import ContentSidebar from '../components/ContentSidebar/ContentSidebar';
 function Cart({ cart }) {
 
     console.log(cart);
@@ -18,7 +19,7 @@ function Cart({ cart }) {
             />
 
             {cart.length > 0 ? (
-                <div className={styles.cart}>
+                <ContentSidebar>
 
                     {cart.map((item, index) => (
                         <ItemProduct
@@ -31,7 +32,7 @@ function Cart({ cart }) {
                             code={item.code}
                         />
                     ))}
-                </div>
+                </ContentSidebar>
             ) : (
                 <div className={styles.emptyCart}>
                     <p>Your cart is empty</p>

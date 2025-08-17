@@ -1,10 +1,8 @@
 import styles from './ContentSidebar.module.scss';
-import ItemProduct from '@componentsSidebar/ItemProduct/ItemProduct';
-function ContentSidebar() {
+function ContentSidebar({ children }) {
     return (
         <div className={styles.wrapper}>
-            <ItemProduct />
-            <ItemProduct />
+            {children}
         </div>
     );
 }

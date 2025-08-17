@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie'
+
 import clsx from 'clsx'
 import styles from './Sidebar.module.scss'
 import { useContext } from 'react'
