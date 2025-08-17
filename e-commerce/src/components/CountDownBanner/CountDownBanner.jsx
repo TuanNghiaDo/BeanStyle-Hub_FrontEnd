@@ -9,7 +9,7 @@ function CountDownBanner({ targetDate, className }) {
                 <CountdownTimer targetDate={targetDate} />
             </div>
             <h2>Sản phẩm hot sắp mở bán</h2>
-            <Button title='Mua ngay' />
+            <Button >Mua ngay</Button>
         </div>
     );
 }

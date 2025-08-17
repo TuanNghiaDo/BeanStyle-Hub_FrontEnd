@@ -42,8 +42,8 @@ function SaleOfHomePage() {
                 <Button
                     secondary
                     className={styles.btn}
-                    title="Xem thêm"
-                />
+                >Xem thêm
+                </Button>
             </div>
             <Image
                 style={{

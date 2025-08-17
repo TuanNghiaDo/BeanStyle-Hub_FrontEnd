@@ -1,15 +1,36 @@
+import { Link } from 'react-router-dom';
 import clsx from 'clsx'
 import styles from './Button.module.scss'
-function Button(
-    {
-        title,
-        primary,
-        secondary,
-        medium,
-        large,
-        className,
-        ...props
-    }) {
+
+function Button({
+    to,
+    href,
+    primary,
+    secondary,
+    medium,
+    large,
+    children,
+    className,
+    onClick,
+    ...passProps
+}) {
+
+    let Comp = 'button';
+    const props = {
+        onClick,
+        ...passProps,
+    };
+
+
+    if (to) {
+        props.to = to;
+        Comp = Link;
+    }
+
+    else if (href) {
+        props.href = href;
+        Comp = 'a';
+    }
 
     const classes = clsx(
         styles.wrapper,
@@ -21,8 +42,12 @@ function Button(
             [styles.large]: large,
         }
     )
+
+
     return (
-        <button className={classes} {...props}>{title}</button>
+        <Comp className={classes} {...props}>
+            {children}
+        </Comp>
     );
 }
 

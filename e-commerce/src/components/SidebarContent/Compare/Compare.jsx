@@ -14,7 +14,7 @@ function Compare() {
             />
             <ContentSidebar />
             <Button
-                title="Xem danh sách"
+                children="Xem chi tiết"
                 primary
                 className={StylesCommon.btn}
             />

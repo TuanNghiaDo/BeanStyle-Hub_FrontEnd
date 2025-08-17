@@ -121,7 +121,7 @@ function ProductItem({
                 )}
                 {sizes && (
                     <Button
-                        title={loading ? <LoadingButton /> : 'Thêm vào giỏ hàng'}
+                        children={loading ? <LoadingButton /> : 'Thêm vào giỏ hàng'}
                         className={styles.btnAddToCart}
                         onClick={handleAddToCart}
                         disabled={loading}

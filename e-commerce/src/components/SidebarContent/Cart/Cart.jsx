@@ -1,4 +1,5 @@
 
+import clsx from 'clsx'
 import StylesCommon from '@componentsSidebar/StylesCommon.module.scss';
 import HeaderSidebar from '@componentsSidebar/HeaderSidebar/HeaderSidebar';
 import config from '@config/index';
@@ -6,6 +7,7 @@ import { CartIcon } from '@icons/Icons';
 import styles from './Cart.module.scss';
 import ItemProduct from '../components/ItemProduct/ItemProduct';
 import ContentSidebar from '../components/ContentSidebar/ContentSidebar';
+import Button from '@components/Button/Button';
 function Cart({ cart }) {
 
     console.log(cart);
@@ -28,8 +30,8 @@ function Cart({ cart }) {
                             name={item.name}
                             size={item.size}
                             price={item.price}
-                            amount={item.amount}
-                            code={item.code}
+                            amount={item.quantity}
+                            code={item.sku}
                         />
                     ))}
                 </ContentSidebar>
@@ -38,6 +40,22 @@ function Cart({ cart }) {
                     <p>Your cart is empty</p>
                 </div>
             )}
+
+            <div className={styles.cartFooter}>
+                <div className={styles.totalValue}>
+                    <span>Tổng tiền:</span>
+                    <span>{cart.reduce((total, item) => total + item.price * item.quantity, 0)}đ</span>
+                </div>
+                <Button
+                    children="Xem chi tiết"
+                    className={clsx(StylesCommon.btn, styles.btnViewDetail)}
+                />
+                <Button
+                    secondary
+                    children="Thoát"
+                    className={StylesCommon.btn}
+                />
+            </div>
 
         </div>
     );

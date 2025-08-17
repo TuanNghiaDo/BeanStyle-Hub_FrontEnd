@@ -9,8 +9,8 @@ import { FacebookIcon, InstagramIcon, TiktokIcon, HeartIcon, CartIcon, SyncIconL
 import { StoreContext } from '@/contexts/index'
 function Menu({ className, position }) {
 
-    const { userInfo, handleLogout } = useContext(StoreContext)
-    // console.log(userInfo)
+    const { userInfo, handleLogout, cart } = useContext(StoreContext)
+
     if (position === 'left') {
         return (
             <div className={className} >
@@ -101,7 +101,12 @@ function Menu({ className, position }) {
                     />
                     <MenuItem
                         className={styles.btn}
-                        icon={<CartIcon />}
+                        icon={
+                            <div className={styles.cartIconWrapper}>
+                                <CartIcon />
+                                {userInfo && (<span className={styles.cartCount}>{cart.length}</span>)}
+                            </div>
+                        }
                         typeContentSidebar='cart'
                     />
                 </div>

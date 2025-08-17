@@ -37,7 +37,7 @@ function ListProduct() {
                 {products.length < total && (
                     <Button
                         className={styles.btnSeeMore}
-                        title={loadMore ? <LoadingButton /> : 'Xem thêm'}
+                        children={loadMore ? <LoadingButton /> : 'Xem thêm'}
                         onClick={handleLoadMore}
                         disabled={loadMore}
                     />

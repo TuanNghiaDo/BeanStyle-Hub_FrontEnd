@@ -132,7 +132,7 @@ function Login() {
                     <span>Nhớ tài khoản và mật khẩu</span>
                 </div>)}
                 <Button
-                    title={isLoading ? "Đang xử lý..." : isRegister ? "Đăng ký" : "Đăng nhập"}
+                    children={isLoading ? "Đang xử lý..." : isRegister ? "Đăng ký" : "Đăng nhập"}
                     className={styles.loginBtn}
                     type="submit"
                     onClick={() => {
@@ -143,7 +143,7 @@ function Login() {
             </form>
             <Button
                 secondary
-                title={isRegister ? "Đã có tài khoản?" : "Chưa có tài khoản?"}
+                children={isRegister ? "Đã có tài khoản?" : "Chưa có tài khoản?"}
                 className={clsx(styles.loginBtn, styles.registerBtn)}
                 onClick={handleToggle}
             />

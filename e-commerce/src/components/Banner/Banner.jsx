@@ -6,7 +6,7 @@ function Banner() {
             <div className={styles.content}>
                 <h1>BeanStyle-Hub</h1>
                 <p>Làm cho bạn tự tin hơn khi ra khỏi nhà...</p>
-                <Button primary title="Mua sắm" />
+                <Button primary>Mua sắm</Button>
             </div>
         </div>
     );
