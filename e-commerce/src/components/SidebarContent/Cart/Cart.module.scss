@@ -17,8 +17,13 @@
     margin-bottom: 20px;
 }
 
-.btnViewDetail {
+.btnViewDetailCartPage {
     margin-bottom: 10px;
+    color: var(--white_color) !important;
+
+    &:hover {
+        color: var(--primary) !important
+    }
 }
 
 .emptyCart {

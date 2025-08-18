@@ -57,12 +57,13 @@ function Cart({ cart }) {
                             <span>{cart.reduce((total, item) => total + item.price * item.quantity, 0)}đ</span>
                         </div>
                         <Button
+                            to={config.routes.cart}
                             children="Xem chi tiết"
-                            className={clsx(StylesCommon.btn, styles.btnViewDetail)}
+                            className={clsx(StylesCommon.btn, styles.btnViewDetailCartPage)}
                         />
                         <Button
                             secondary
-                            children="Thoát"
+                            children="Thanh toán"
                             className={StylesCommon.btn}
                             onClick={() => setIsOpen(false)}
                         />
