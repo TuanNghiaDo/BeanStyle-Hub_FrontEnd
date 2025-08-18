@@ -10,6 +10,7 @@ const routes = {
     forgot_password: '/forgot-password',
     compare: '/compare',
     wish_list: '/wish-list',
+    checkout: '/checkout',
 }
 
 export default routes

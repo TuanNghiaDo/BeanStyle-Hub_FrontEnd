@@ -1,5 +1,5 @@
 
-import { Home, OurShop, AboutUs, Contact, ForgotPassword, Cart } from '@pages/pages';
+import { Home, OurShop, AboutUs, Contact, ForgotPassword, Cart, Checkout } from '@pages/pages';
 import config from '@config/index';
 const publicRoutes = [
     { path: config.routes.home, component: Home },  //Route components that are accessible without authentication
@@ -8,6 +8,7 @@ const publicRoutes = [
     { path: config.routes.contact, component: Contact },
     { path: config.routes.forgot_password, component: ForgotPassword },
     { path: config.routes.cart, component: Cart },
+    { path: config.routes.checkout, component: Checkout },
 ]
 
 const privateRoutes = []

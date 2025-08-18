@@ -1,0 +1,82 @@
+@mixin flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin set-before-content($number) {
+  &::before {
+    content: $number;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #9a9a9a;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid #e1e1e1;
+    margin-right: 8px;
+  }
+}
+
+@mixin set-after-content(){
+    &::after{
+        content: '';
+        flex-grow: 1;
+        height: 2px;
+        background-color: #e1e1e1;
+        margin: 0 15px;
+    }
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #fafafa;
+
+    padding: 2.3vw 0;
+}
+
+.steps {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.3vw 16vw;
+
+    li {
+        @include flex-container;
+        
+        flex-grow: 1;
+        font-size: 2rem;
+        text-transform: uppercase;
+
+        &:nth-child(1) {
+            @include set-before-content('1');
+        }
+        &:nth-child(2) {
+            @include set-before-content('2');
+        }
+        &:nth-child(3) {
+            @include set-before-content('3');
+            flex-grow: 0;
+        }
+
+        a {
+            color: #9a9a9a;
+        }
+
+        &:not(:last-child) {
+            @include set-after-content();
+        }
+    }
+}
+
+.wrapperMessage {
+    color: var(--four_color);
+}
