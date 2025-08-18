@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import clsx from 'clsx'
 
-import { StoreContext } from '@contexts/index';
+import { StoreContext, SidebarContext } from '@contexts/index';
 import StylesCommon from '@componentsSidebar/StylesCommon.module.scss';
 import HeaderSidebar from '@componentsSidebar/HeaderSidebar/HeaderSidebar';
 import config from '@config/index';
@@ -17,6 +17,8 @@ function Cart({ cart }) {
 
     const { isCartLoading } = useContext(StoreContext);
 
+    const { setIsOpen } = useContext(SidebarContext);
+
     return (
         <div className={StylesCommon.wrapper}>
             <HeaderSidebar
@@ -26,46 +28,60 @@ function Cart({ cart }) {
             />
 
             {cart.length > 0 ? (
-                <ContentSidebar>
+                <>
+                    <ContentSidebar>
 
-                    {cart.map((item) => (
-                        <ItemProduct
-                            key={item.productId}
-                            image={item.images[0]}
-                            name={item.name}
-                            size={item.size}
-                            price={item.price}
-                            amount={item.quantity}
-                            code={item.sku}
-                            productId={item.productId}
-                            userId={item.userId}
+                        {cart.map((item) => (
+
+                            <ItemProduct
+                                key={item.productId}
+                                image={item.images[0]}
+                                name={item.name}
+                                size={item.size}
+                                price={item.price}
+                                amount={item.quantity}
+                                code={item.sku}
+                                productId={item.productId}
+                                userId={item.userId}
+                            />
+
+
+                        ))}
+                        {isCartLoading && (
+                            <Loading color="#000" />
+                        )}
+                    </ContentSidebar>
+                    <div className={styles.cartFooter}>
+                        <div className={styles.totalValue}>
+                            <span>Tổng tiền:</span>
+                            <span>{cart.reduce((total, item) => total + item.price * item.quantity, 0)}đ</span>
+                        </div>
+                        <Button
+                            children="Xem chi tiết"
+                            className={clsx(StylesCommon.btn, styles.btnViewDetail)}
                         />
-                    ))}
-                    {isCartLoading && (
-                        <Loading color="#000" />
-                    )}
-                </ContentSidebar>
+                        <Button
+                            secondary
+                            children="Thoát"
+                            className={StylesCommon.btn}
+                            onClick={() => setIsOpen(false)}
+                        />
+
+                    </div >
+                </>
             ) : (
                 <div className={styles.emptyCart}>
                     <p>Your cart is empty</p>
+                    <Button
+                        secondary
+                        to={config.routes.store}
+                        children="Trở về cửa hàng"
+                        className={StylesCommon.btn}
+                        onClick={() => setIsOpen(false)}
+                    />
                 </div>
-            )}
 
-            <div className={styles.cartFooter}>
-                <div className={styles.totalValue}>
-                    <span>Tổng tiền:</span>
-                    <span>{cart.reduce((total, item) => total + item.price * item.quantity, 0)}đ</span>
-                </div>
-                <Button
-                    children="Xem chi tiết"
-                    className={clsx(StylesCommon.btn, styles.btnViewDetail)}
-                />
-                <Button
-                    secondary
-                    children="Thoát"
-                    className={StylesCommon.btn}
-                />
-            </div>
+            )}
 
         </div>
     );
