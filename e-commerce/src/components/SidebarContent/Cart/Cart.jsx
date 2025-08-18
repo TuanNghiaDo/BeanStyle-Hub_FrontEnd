@@ -1,5 +1,7 @@
-
+import { useContext } from 'react';
 import clsx from 'clsx'
+
+import { StoreContext } from '@contexts/index';
 import StylesCommon from '@componentsSidebar/StylesCommon.module.scss';
 import HeaderSidebar from '@componentsSidebar/HeaderSidebar/HeaderSidebar';
 import config from '@config/index';
@@ -8,9 +10,12 @@ import styles from './Cart.module.scss';
 import ItemProduct from '../components/ItemProduct/ItemProduct';
 import ContentSidebar from '../components/ContentSidebar/ContentSidebar';
 import Button from '@components/Button/Button';
+import Loading from '@components/Loading/Loading';
 function Cart({ cart }) {
 
     console.log(cart);
+
+    const { isCartLoading } = useContext(StoreContext);
 
     return (
         <div className={StylesCommon.wrapper}>
@@ -36,6 +41,9 @@ function Cart({ cart }) {
                             userId={item.userId}
                         />
                     ))}
+                    {isCartLoading && (
+                        <Loading color="#000" />
+                    )}
                 </ContentSidebar>
             ) : (
                 <div className={styles.emptyCart}>

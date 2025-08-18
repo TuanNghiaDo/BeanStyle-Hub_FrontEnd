@@ -1,17 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { StoreContext, ToastContext } from '@contexts/index'
 import styles from './ItemProduct.module.scss';
 import Image from '@components/Image/Image';
 import { CloseIcon } from '@icons/Icons';
 import { removeFromCart } from '@api/cartService';
+import Loading from '@components/Loading/Loading';
 function ItemProduct({ image = '', name = 'No Name', size = 'M', price = 200, amount = 1, code = '0000', productId, userId }) {
 
     const { fetchCart } = useContext(StoreContext)
 
     const { toast } = useContext(ToastContext)
 
+    const [isDelete, setIsDelete] = useState(false);
+
     const handleDeleteProductFromCart = () => {
 
+        setIsDelete(true);
         const data = {
             userId,
             productId
@@ -19,10 +23,12 @@ function ItemProduct({ image = '', name = 'No Name', size = 'M', price = 200, am
 
         removeFromCart(data)
             .then(() => {
+                setIsDelete(false);
                 toast.success('Xoá sản phẩm khỏi giỏ hàng thành công')
                 fetchCart()
             })
             .catch((err) => {
+                setIsDelete(false);
                 toast.error('Xoá sản phẩm khỏi giỏ hàng thất bại')
                 console.log(err);
             })
@@ -47,6 +53,7 @@ function ItemProduct({ image = '', name = 'No Name', size = 'M', price = 200, am
                 className={styles.closeIcon}
                 onClick={handleDeleteProductFromCart}
             />
+            {isDelete && <Loading color="#000" />}
         </div>
     );
 }

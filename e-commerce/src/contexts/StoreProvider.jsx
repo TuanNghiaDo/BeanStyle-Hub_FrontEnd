@@ -9,6 +9,8 @@ function StoreProvider({ children }) {
 
     const [cart, setCart] = useState([]);
 
+    const [isCartLoading, setIsCartLoading] = useState(false);
+
 
     const handleLogout = useCallback(() => {
         Cookies.remove('token');
@@ -21,17 +23,21 @@ function StoreProvider({ children }) {
 
 
     const fetchCart = useCallback(async () => {
+        setIsCartLoading(true);
         const userId = Cookies.get('userId');
         if (!userId) {
             setCart([]);
+            setIsCartLoading(false);
             return;
         }
         try {
             const res = await getCart(userId);
             setCart(res.data.data || []);
+            setIsCartLoading(false);
         } catch (error) {
             console.error("Failed to fetch cart:", error);
             if (error.response && error.response.status === 401) {
+                setIsCartLoading(false);
                 handleLogout();
             }
         }
@@ -70,7 +76,7 @@ function StoreProvider({ children }) {
     }, [userInfo, fetchCart]);
 
     return (
-        <StoreContext.Provider value={{ userInfo, handleLogout, fetchUserInfo, cart, fetchCart }}>
+        <StoreContext.Provider value={{ userInfo, handleLogout, fetchUserInfo, cart, fetchCart, isCartLoading }}>
             {children}
         </StoreContext.Provider>
     );
