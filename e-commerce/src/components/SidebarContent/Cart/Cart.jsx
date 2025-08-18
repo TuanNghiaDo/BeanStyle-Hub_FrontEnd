@@ -23,15 +23,17 @@ function Cart({ cart }) {
             {cart.length > 0 ? (
                 <ContentSidebar>
 
-                    {cart.map((item, index) => (
+                    {cart.map((item) => (
                         <ItemProduct
-                            key={index}
+                            key={item.productId}
                             image={item.images[0]}
                             name={item.name}
                             size={item.size}
                             price={item.price}
                             amount={item.quantity}
                             code={item.sku}
+                            productId={item.productId}
+                            userId={item.userId}
                         />
                     ))}
                 </ContentSidebar>
