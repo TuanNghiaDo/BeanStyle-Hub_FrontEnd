@@ -1,17 +1,36 @@
-import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import { NavLink } from 'react-router-dom';
 import styles from './Step.module.scss';
 function Step() {
+
+    const getActiveClassName = ({ isActive }) => clsx({ [styles.active]: isActive });
+
     return (
         <div className={styles.wrapper}>
             <ul className={styles.steps}>
                 <li>
-                    <Link to="/cart">Giỏ hàng</Link>
+                    <NavLink
+                        to="/cart"
+                        className={getActiveClassName}
+                    >
+                        Giỏ hàng
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/checkout">Thanh toán</Link>
+                    <NavLink
+                        to="/checkout"
+                        className={getActiveClassName}
+                    >
+                        Thanh toán
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to="/order-status">Trạng thái đơn hàng</Link>
+                    <NavLink
+                        to="/order-status"
+                        className={getActiveClassName}
+                    >
+                        Trạng thái đơn hàng
+                    </NavLink>
                 </li>
             </ul>
             <div className={styles.wrapperMessage}>

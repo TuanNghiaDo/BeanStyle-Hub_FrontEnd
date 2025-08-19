@@ -71,8 +71,30 @@
             color: #9a9a9a;
         }
 
+        a.active {
+            color: var(--primary);
+        }
+
         &:not(:last-child) {
             @include set-after-content();
+        }
+
+        &:has(a.active) {
+            // Bây giờ bạn đang ở trong scope của thẻ li,
+            // bạn có thể style cho ::before của nó một cách dễ dàng
+            &::before {
+                background-color: var(--primary);
+                color: white;
+                border: 1px solid var(--primary);
+            }
+        }
+
+        // Chọn li NÀO được theo SAU bởi một li chứa link active
+        &:has(+ li a.active) {
+            // Style cho đường kẻ ::after của chính nó
+            &::after {
+                background-color: var(--primary);
+            }
         }
     }
 }

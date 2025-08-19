@@ -1,6 +1,9 @@
+import Step from '../Cart/components/steps/Step';
 function Checkout() {
     return (
-        <h1>Thanh toán</h1>
+        <>
+            <Step />
+        </>
     );
 }
 
