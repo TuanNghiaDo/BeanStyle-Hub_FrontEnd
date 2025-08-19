@@ -30,6 +30,14 @@
     }
 }
 
+@mixin set-active-before(){
+    &::before {
+        background-color: var(--primary);
+        color: white;
+        border: 1px solid var(--primary);
+    }
+}
+
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -82,16 +90,18 @@
         &:has(a.active) {
             // Bây giờ bạn đang ở trong scope của thẻ li,
             // bạn có thể style cho ::before của nó một cách dễ dàng
-            &::before {
-                background-color: var(--primary);
-                color: white;
-                border: 1px solid var(--primary);
-            }
+            @include set-active-before();
         }
 
         // Chọn li NÀO được theo SAU bởi một li chứa link active
         &:has(+ li a.active) {
             // Style cho đường kẻ ::after của chính nó
+            a {
+                color: var(--primary);
+            }
+
+            @include set-active-before();
+
             &::after {
                 background-color: var(--primary);
             }
