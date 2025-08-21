@@ -1,5 +1,5 @@
 
-import { Home, OurShop, AboutUs, Contact, ForgotPassword, Cart, Checkout } from '../pages/pages.js';
+import { Home, OurShop, AboutUs, Contact, ForgotPassword, Cart, Checkout } from '../pages/pages';
 import config from '@config/index';
 const publicRoutes = [
     { path: config.routes.home, component: Home },  //Route components that are accessible without authentication
