@@ -1,13 +1,17 @@
+
 import styles from './Content.module.scss';
 import CartTable from './CartTable.jsx';
+import CartSummary from './CartSummary.jsx';
 function Content() {
     return (
         <div className={styles.wrapper}>
-            <div>
+            <div className={styles.cartTable}>
                 <CartTable />
             </div>
 
-            <div>Thanh toán</div>
+            <div className={styles.cartSummary}>
+                <CartSummary />
+            </div>
         </div>
     );
 }
