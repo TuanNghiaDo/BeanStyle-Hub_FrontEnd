@@ -15,8 +15,6 @@ function Sidebar() {
 
     const { cart, userInfo } = useContext(StoreContext)
 
-    console.log(userInfo)
-
     const userId = userInfo?.id
 
     const handleToggle = () => {

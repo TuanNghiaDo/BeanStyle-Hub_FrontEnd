@@ -13,7 +13,6 @@ import Button from '@components/Button/Button';
 import Loading from '@components/Loading/Loading';
 function Cart({ cart }) {
 
-    console.log(cart);
 
     const { isCartLoading } = useContext(StoreContext);
 

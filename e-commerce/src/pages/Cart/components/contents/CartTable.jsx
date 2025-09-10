@@ -1,13 +1,11 @@
 import Cookies from 'js-cookie';
-import { useState } from 'react';
 
-import { addToCart } from '@api/cartService';
+
 import styles from './CartTable.module.scss';
 import { DeleteIcon } from '@icons/Icons';
 
-const CartTable = ({ cart }) => {
+const CartTable = ({ cart, getData }) => {
     const userId = Cookies.get('userId');
-    const [products, setProducts] = useState(cart);
 
     const handleQuantityChange = async (userId, productId, newQuantity, size) => {
 
@@ -16,20 +14,10 @@ const CartTable = ({ cart }) => {
             productId: productId,
             quantity: newQuantity,
             size: size,
-            isMultiple: false
+            isMultiple: true
         }
 
-        try {
-            await addToCart(data);
-
-            setProducts(
-                products.map((product) =>
-                    product.productId === productId && product.size === size ? { ...product, quantity: newQuantity } : product
-                )
-            );
-        } catch (error) {
-            console.error("Failed to update cart:", error);
-        }
+        getData(data);
 
     };
 
@@ -60,7 +48,7 @@ const CartTable = ({ cart }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map((product) => (
+                    {cart.map((product) => (
                         <tr key={`${product.productId}-${product.size}`}>
                             <td className={styles.productDetails}>
                                 <img src={product.images[0]} alt={product.name} />

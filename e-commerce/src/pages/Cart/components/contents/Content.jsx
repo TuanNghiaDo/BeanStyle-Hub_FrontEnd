@@ -7,13 +7,30 @@ import CartSummary from './CartSummary.jsx';
 import Button from '@components/Button/Button.jsx';
 import { DeleteIcon } from '@components/icons/Icons';
 import { StoreContext } from '@contexts/index';
+import { addToCart } from '@api/cartService';
 function Content() {
 
-    const { cart } = useContext(StoreContext);
+    const { cart, fetchCart } = useContext(StoreContext);
+
+
+    const handleReplaceQuantity = (data) => {
+
+        addToCart(data)
+            .then((res) => {
+                console.log("Update cart successfully:", res);
+                fetchCart();
+            })
+            .catch((error) => {
+                console.error("Error updating cart:", error);
+            })
+    }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.cartTable}>
-                <CartTable cart={cart} />
+                <CartTable
+                    cart={cart}
+                    getData={handleReplaceQuantity} />
                 <div className={styles.cartFooter}>
                     <div className={styles.couponWrapper}>
                         <input
