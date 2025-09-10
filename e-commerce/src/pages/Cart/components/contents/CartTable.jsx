@@ -1,46 +1,36 @@
-import React, { useState } from 'react';
+import Cookies from 'js-cookie';
+import { useState } from 'react';
+
+import { addToCart } from '@api/cartService';
 import styles from './CartTable.module.scss';
 import { DeleteIcon } from '@icons/Icons';
-// Dữ liệu giả lập cho các sản phẩm
-const initialProducts = [
-    {
-        id: 1,
-        image: 'https://xstore.8theme.com/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image-2.1-min-285x340.jpg',
-        name: 'Consectetur nibh at',
-        size: 'M',
-        price: 119.99,
-        sku: '12349',
-        quantity: 2,
-    },
-    {
-        id: 2,
-        image: 'https://xstore.8theme.com/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image-1.1-min-285x340.jpg',
-        name: '10K Yellow Gold',
-        size: 'M',
-        price: 99.99,
-        sku: '12345',
-        quantity: 1,
-    },
-    {
-        id: 3,
-        image: 'https://xstore.8theme.com/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image-7.1-min-285x340.jpg',
-        name: 'Amet faucibus nunc',
-        size: 'M',
-        price: 1879.99,
-        sku: '87654',
-        quantity: 1,
-    },
-];
 
-const CartTable = () => {
-    const [products, setProducts] = useState(initialProducts);
+const CartTable = ({ cart }) => {
+    const userId = Cookies.get('userId');
+    const [products, setProducts] = useState(cart);
 
-    const handleQuantityChange = (productId, newQuantity) => {
-        setProducts(
-            products.map((product) =>
-                product.id === productId ? { ...product, quantity: newQuantity } : product
-            )
-        );
+    const handleQuantityChange = async (userId, productId, newQuantity, size) => {
+
+        const data = {
+            userId: userId,
+            productId: productId,
+            quantity: newQuantity,
+            size: size,
+            isMultiple: false
+        }
+
+        try {
+            await addToCart(data);
+
+            setProducts(
+                products.map((product) =>
+                    product.productId === productId && product.size === size ? { ...product, quantity: newQuantity } : product
+                )
+            );
+        } catch (error) {
+            console.error("Failed to update cart:", error);
+        }
+
     };
 
     const calculateSubtotal = (price, quantity) => {
@@ -71,9 +61,9 @@ const CartTable = () => {
                 </thead>
                 <tbody>
                     {products.map((product) => (
-                        <tr key={product.id}>
+                        <tr key={`${product.productId}-${product.size}`}>
                             <td className={styles.productDetails}>
-                                <img src={product.image} alt={product.name} />
+                                <img src={product.images[0]} alt={product.name} />
                                 <div className={styles.productInfo}>
                                     <span className={styles.productName}>{product.name}</span>
                                     <span className={styles.productSize}>Size: {product.size}</span>
@@ -88,7 +78,7 @@ const CartTable = () => {
                                 <select
                                     className={styles.quantitySelect}
                                     value={product.quantity}
-                                    onChange={(e) => handleQuantityChange(product.id, parseInt(e.target.value, 10))}
+                                    onChange={(e) => handleQuantityChange(userId, product.productId, parseInt(e.target.value, 10), product.size)}
                                 >
                                     {showOptions.map((option) => (
                                         <option key={option.value} value={option.value}>

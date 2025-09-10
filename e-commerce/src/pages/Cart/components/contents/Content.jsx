@@ -1,14 +1,19 @@
 
+import { useContext } from 'react';
+
 import styles from './Content.module.scss';
 import CartTable from './CartTable.jsx';
 import CartSummary from './CartSummary.jsx';
 import Button from '@components/Button/Button.jsx';
 import { DeleteIcon } from '@components/icons/Icons';
+import { StoreContext } from '@contexts/index';
 function Content() {
+
+    const { cart } = useContext(StoreContext);
     return (
         <div className={styles.wrapper}>
             <div className={styles.cartTable}>
-                <CartTable />
+                <CartTable cart={cart} />
                 <div className={styles.cartFooter}>
                     <div className={styles.couponWrapper}>
                         <input
