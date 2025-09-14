@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import styles from './CartSummary.module.scss';
 import Button from '@components/Button/Button'
-function CartSummary() {
+import Loading from '@components/Loading/Loading';
+function CartSummary({ cart, isLoading }) {
 
     const methodImgs = [
         "https://xstore.8theme.com/elementor2/marseille04/wp-content/themes/xstore/images/woocommerce/payment-icons/visa.jpeg",
@@ -14,21 +15,22 @@ function CartSummary() {
     return (
         <div className={styles.wrapper}>
             <div className={styles.wrapperInfoSummary}>
-                <span>Cart Total</span>
+                <span>Tổng tiền</span>
                 <hr />
                 <div className={clsx(styles.wrapperPrice, styles.subtotal)}>
-                    <span>Subtotal</span>
-                    <span>$1.9999</span>
+                    <span>tạm tính</span>
+                    <span>{cart?.map(item => item.price * item.quantity).reduce((acc, curr) => acc + curr, 0) + '$'}</span>
                 </div>
                 <div className={clsx(styles.wrapperPrice, styles.total)}>
-                    <span>Total</span>
-                    <span>$1.9999</span>
+                    <span>Thành tiền</span>
+                    <span>{cart?.map(item => item.price * item.quantity).reduce((acc, curr) => acc + curr, 0) + '$'}</span>
                 </div>
 
                 <div className={styles.wrapperButton}>
                     <Button className={styles.btn}>Tiến hành thanh toán</Button>
                     <Button className={styles.btn} secondary>Tiếp tục mua sắm</Button>
                 </div>
+                {isLoading && <Loading color='black' />}
             </div>
             <div className={styles.methodPayment}>
                 <div className={styles.titleMethod}>

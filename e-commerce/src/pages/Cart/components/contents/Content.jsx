@@ -10,7 +10,7 @@ import { StoreContext } from '@contexts/index';
 import { addToCart } from '@api/cartService';
 function Content() {
 
-    const { cart, fetchCart } = useContext(StoreContext);
+    const { cart, fetchCart, isCartLoading } = useContext(StoreContext);
 
 
     const handleReplaceQuantity = (data) => {
@@ -30,7 +30,9 @@ function Content() {
             <div className={styles.cartTable}>
                 <CartTable
                     cart={cart}
-                    getData={handleReplaceQuantity} />
+                    getData={handleReplaceQuantity}
+                    isLoading={isCartLoading}
+                />
                 <div className={styles.cartFooter}>
                     <div className={styles.couponWrapper}>
                         <input
@@ -60,7 +62,10 @@ function Content() {
             </div>
 
             <div className={styles.cartSummary}>
-                <CartSummary />
+                <CartSummary
+                    cart={cart}
+                    isLoading={isCartLoading}
+                />
             </div>
         </div>
     );

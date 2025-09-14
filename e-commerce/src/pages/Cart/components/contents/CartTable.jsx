@@ -3,8 +3,8 @@ import Cookies from 'js-cookie';
 
 import styles from './CartTable.module.scss';
 import { DeleteIcon } from '@icons/Icons';
-
-const CartTable = ({ cart, getData }) => {
+import Loading from '@components/Loading/Loading';
+const CartTable = ({ cart, getData, isLoading }) => {
     const userId = Cookies.get('userId');
 
     const handleQuantityChange = async (userId, productId, newQuantity, size) => {
@@ -80,6 +80,7 @@ const CartTable = ({ cart, getData }) => {
                     ))}
                 </tbody>
             </table>
+            {isLoading && <Loading color='black' />}
         </div>
     );
 };
