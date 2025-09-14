@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import styles from './CartTable.module.scss';
 import { DeleteIcon } from '@icons/Icons';
 import Loading from '@components/Loading/Loading';
-const CartTable = ({ cart, getData, isLoading }) => {
+const CartTable = ({ cart, getData, isLoading, removeProduct }) => {
     const userId = Cookies.get('userId');
 
     const handleQuantityChange = async (userId, productId, newQuantity, size) => {
@@ -20,6 +20,15 @@ const CartTable = ({ cart, getData, isLoading }) => {
         getData(data);
 
     };
+
+    const handleDeleteProduct = async (userId, productId) => {
+        const data = {
+            userId: userId,
+            productId: productId,
+        }
+
+        removeProduct(data);
+    }
 
     const calculateSubtotal = (price, quantity) => {
         return (price * quantity).toFixed(2);
@@ -56,7 +65,8 @@ const CartTable = ({ cart, getData, isLoading }) => {
                                     <span className={styles.productName}>{product.name}</span>
                                     <span className={styles.productSize}>Size: {product.size}</span>
                                 </div>
-                                <button className={styles.deleteIcon}>
+                                <button className={styles.deleteIcon}
+                                    onClick={() => handleDeleteProduct(userId, product.productId)}>
                                     <DeleteIcon width={20} height={20} />
                                 </button>
                             </td>

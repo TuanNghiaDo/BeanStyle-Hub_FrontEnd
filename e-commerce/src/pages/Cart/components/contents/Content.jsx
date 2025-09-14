@@ -7,7 +7,7 @@ import CartSummary from './CartSummary.jsx';
 import Button from '@components/Button/Button.jsx';
 import { DeleteIcon } from '@components/icons/Icons';
 import { StoreContext } from '@contexts/index';
-import { addToCart } from '@api/cartService';
+import { addToCart, removeFromCart } from '@api/cartService';
 function Content() {
 
     const { cart, fetchCart, isCartLoading } = useContext(StoreContext);
@@ -25,6 +25,17 @@ function Content() {
             })
     }
 
+    const handleDeleteProduct = (data) => {
+        removeFromCart(data)
+            .then((res) => {
+                console.log("Remove product from cart successfully:", res);
+                fetchCart();
+            })
+            .catch((error) => {
+                console.error("Error removing product from cart:", error);
+            })
+    }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.cartTable}>
@@ -32,6 +43,7 @@ function Content() {
                     cart={cart}
                     getData={handleReplaceQuantity}
                     isLoading={isCartLoading}
+                    removeProduct={handleDeleteProduct}
                 />
                 <div className={styles.cartFooter}>
                     <div className={styles.couponWrapper}>
