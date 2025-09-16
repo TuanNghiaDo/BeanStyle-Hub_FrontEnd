@@ -30,6 +30,7 @@ function ListProduct() {
                                 btnTitle="Thêm vào giỏ hàng"
                                 imageSize={!showGrid ? imageSize : undefined}
                                 showGrid={showGrid}
+                                details={product}
                             />
                         ))
                     }

@@ -11,6 +11,7 @@ function PopularProduct({ listProduct }) {
                     price={product.price}
                     images={product.images}
                     showGrid={true}
+                    details={product}
                 />
             ))}
         </div>

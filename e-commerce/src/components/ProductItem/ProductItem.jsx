@@ -18,7 +18,8 @@ function ProductItem({
     sizes,
     images,
     imageSize,
-    showGrid
+    showGrid,
+    details
 }) {
 
     const [sizeSelected, setSizeSelected] = useState(sizes?.[0]?.name);
@@ -34,6 +35,8 @@ function ProductItem({
     const { toast } = useContext(ToastContext);
 
     const [loading, setLoading] = useState(false);
+
+    const { setProductDetail } = useContext(SidebarContext);
 
     const handleAddToCart = (e) => {
         e?.preventDefault();
@@ -84,9 +87,9 @@ function ProductItem({
     const handleShowProductDetailSidebar = (e) => {
         e?.preventDefault();
         e?.stopPropagation();
-        console.log('you clicked on product detail');
         setIsOpen(true);
         setType('productDetail');
+        setProductDetail(details);
     }
 
     const handleAddToWishList = (e) => {

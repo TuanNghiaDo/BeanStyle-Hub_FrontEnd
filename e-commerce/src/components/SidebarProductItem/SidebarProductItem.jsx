@@ -5,7 +5,7 @@ function SidebarProductItem({ className,
     onAddToCart,
     onAddToWishList,
     onCompare,
-    onShowProductDetail
+    onShowProductDetail,
 }) {
     return (
         <div className={clsx(styles.wrapper, className)}>
