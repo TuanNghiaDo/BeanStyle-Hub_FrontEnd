@@ -12,4 +12,8 @@ const removeFromCart = async (data) => {
     return await axiosClient.delete(`/cart/deleteItem`, { data });
 }
 
-export { addToCart, getCart, removeFromCart };
+const deleteAllCart = async (body) => {
+    return axiosClient.delete('/cart/delete', { data: body })
+}
+
+export { addToCart, getCart, removeFromCart, deleteAllCart };

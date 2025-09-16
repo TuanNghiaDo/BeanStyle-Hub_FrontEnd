@@ -11,6 +11,8 @@ function StoreProvider({ children }) {
 
     const [isCartLoading, setIsCartLoading] = useState(false);
 
+    const userId = Cookies.get('userId');
+
 
     const handleLogout = useCallback(() => {
         Cookies.remove('token');
@@ -76,7 +78,7 @@ function StoreProvider({ children }) {
     }, [userInfo, fetchCart]);
 
     return (
-        <StoreContext.Provider value={{ userInfo, handleLogout, fetchUserInfo, cart, fetchCart, isCartLoading }}>
+        <StoreContext.Provider value={{ userInfo, handleLogout, fetchUserInfo, cart, fetchCart, isCartLoading, userId }}>
             {children}
         </StoreContext.Provider>
     );
