@@ -8,6 +8,7 @@ import Login from '@components/SidebarContent/Login/Login'
 import WishList from '@components/SidebarContent/WishList/WishList'
 import Cart from '@components/SidebarContent/Cart/Cart'
 import Compare from '@components/SidebarContent/Compare/Compare'
+import ProductDetail from '@components/SidebarContent/ProductDetail/ProductDetail'
 
 function Sidebar() {
 
@@ -36,6 +37,8 @@ function Sidebar() {
                 else return <Login />
             case 'compare':
                 return <Compare />
+            case 'productDetail':
+                return <ProductDetail />
             default:
                 break
         }

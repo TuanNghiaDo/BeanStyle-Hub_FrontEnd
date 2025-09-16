@@ -35,7 +35,9 @@ function ProductItem({
 
     const [loading, setLoading] = useState(false);
 
-    const handleAddToCart = () => {
+    const handleAddToCart = (e) => {
+        e?.preventDefault();
+        e?.stopPropagation();
         if (!userId) {
             toast.warning('Bạn chưa đăng nhập!')
             setIsOpen(true);
@@ -79,6 +81,30 @@ function ProductItem({
         setChooseSize(true);
     }
 
+    const handleShowProductDetailSidebar = (e) => {
+        e?.preventDefault();
+        e?.stopPropagation();
+        console.log('you clicked on product detail');
+        setIsOpen(true);
+        setType('productDetail');
+    }
+
+    const handleAddToWishList = (e) => {
+        e?.preventDefault();
+        e?.stopPropagation();
+        setIsOpen(true);
+        setType('wishList');
+    }
+
+    const handleCompare = (e) => {
+        e?.preventDefault();
+        e?.stopPropagation();
+        setIsOpen(true);
+        setType('compare');
+    }
+
+
+
     return (
         <div className={showGrid ? styles.wrapperVertical : styles.wrapperHorizontal}>
             <Link to={'/'} className={styles.link}>
@@ -94,7 +120,13 @@ function ProductItem({
                     width={imageSize?.width}
                     height={imageSize?.height}
                 />
-                <SidebarProductItem className={styles.sidebarProductItem} />
+                <SidebarProductItem
+                    className={styles.sidebarProductItem}
+                    onAddToCart={handleAddToCart}
+                    onAddToWishList={handleAddToWishList}
+                    onCompare={handleCompare}
+                    onShowProductDetail={handleShowProductDetailSidebar}
+                />
 
             </Link>
             <div className={clsx({ [styles.productContent]: showGrid && sizes })}>

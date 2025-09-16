@@ -300,14 +300,15 @@ export const CartIcon = ({ width = '2.4rem', height = '2.4rem', className }) => 
 
 )
 
-export const HeartIcon = ({ width = '2.8rem', height = '2.8rem', strokeWidth = '0.609939', className }) => (
+export const HeartIcon = ({ width = '2.8rem', height = '2.8rem', strokeWidth = '0.609939', className, onClick }) => (
     <svg
         className={className}
         width={width}
         height={height}
         viewBox="0 0 11 11"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+        onClick={onClick}>
         <path
             d="M7.10679 2.44543C5.86938 2.44543 5.25944 3.66531 5.25944 3.66531C5.25944 3.66531 4.6495 2.44543 3.41208 2.44543C2.40645 2.44543 1.6101 3.28677 1.5998 4.29069C1.57884 6.37458 3.25293 7.85655 5.08789 9.10196C5.13848 9.13638 5.19825 9.15479 5.25944 9.15479C5.32062 9.15479 5.38039 9.13638 5.43098 9.10196C7.26575 7.85655 8.93985 6.37458 8.91907 4.29069C8.90878 3.28677 8.11243 2.44543 7.10679 2.44543Z"
             stroke="currentColor"
@@ -316,8 +317,8 @@ export const HeartIcon = ({ width = '2.8rem', height = '2.8rem', strokeWidth = '
 
 )
 
-export const SyncIcon = ({ width = '2.2rem', height = '2.2rem', className, strokeWidth = '0.1' }) => (
-    <svg className={className} width={width} height={height} viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const SyncIcon = ({ width = '2.2rem', height = '2.2rem', className, strokeWidth = '0.1', onClick }) => (
+    <svg className={className} width={width} height={height} viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}>
         <path
             d="M18.6241 15.7826L18.3276 15.5966L18.6241 15.7826ZM2.41314 12.7128C2.24939 12.6101 2.03338 12.6595 1.93066 12.8233L0.256762 15.4917C0.154043 15.6555 0.203518 15.8715 0.367267 15.9742C0.531015 16.0769 0.74703 16.0274 0.849748 15.8637L2.33766 13.4918L4.7096 14.9797C4.87335 15.0824 5.08937 15.0329 5.19209 14.8692C5.2948 14.7054 5.24533 14.4894 5.08158 14.3867L2.41314 12.7128ZM18.6241 15.7826L18.3276 15.5966C17.1085 17.54 15.1674 18.9195 12.9311 19.4317L13.0093 19.7728L13.0874 20.114C15.5046 19.5604 17.6029 18.0692 18.9206 15.9686L18.6241 15.7826ZM13.0093 19.7728L12.9311 19.4317C10.6949 19.9438 8.34683 19.5467 6.40342 18.3276L6.21743 18.6241L6.03144 18.9206C8.13212 20.2383 10.6702 20.6676 13.0874 20.114L13.0093 19.7728ZM6.21743 18.6241L6.40342 18.3276C4.46002 17.1085 3.08049 15.1674 2.56832 12.9311L2.22715 13.0093L1.88599 13.0874C2.4396 15.5046 3.93077 17.6029 6.03144 18.9206L6.21743 18.6241ZM19.9443 12L19.5964 11.9611C19.4533 13.2409 19.0249 14.4849 18.3276 15.5966L18.6241 15.7826L18.9206 15.9686C19.6744 14.767 20.1374 13.4222 20.2921 12.0389L19.9443 12Z"
             fill="currentColor"
@@ -460,8 +461,16 @@ export const SupportIcon = ({ width = '4rem', height = '4rem', className }) => (
 
 
 
-export const EyeIcon = ({ width = '30rem', height = '20rem', className }) => (
-    <svg className={className} width={width} height={height} viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const EyeIcon = ({ width = '30rem', height = '20rem', className, onClick }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 26 19"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        onClick={onClick}
+    >
         <path d="M13 4.15039C16.8936 4.15039 20.391 6.21887 22.7207 9.5C20.391 12.7811 16.8936 14.8496 13 14.8496C9.10619 14.8496 5.60803 12.7814 3.27832 9.5C5.60803 6.2186 9.10619 4.15039 13 4.15039Z"
             stroke="black"
             strokeWidth="0.7"
@@ -505,6 +514,7 @@ export const CartIconStroked = ({
     width = '2.4rem',
     height = '2.4rem',
     className,
+    onClick
 }) => (
 
 
@@ -515,6 +525,7 @@ export const CartIconStroked = ({
         height={height}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 640 640"
+        onClick={onClick}
     >
         <path
             d="M8 64C3.6 64 0 67.6 0 72C0 76.4 3.6 80 8 80L53.7 80C65.1 80 75 88.1 77.2 99.4L136.6 402.8C141.7 429.1 164.8 448 191.6 448L488 448C492.4 448 496 444.4 496 440C496 435.6 492.4 432 488 432L191.5 432C172.4 432 155.9 418.5 152.2 399.7L142.9 352L461.2 352C494.7 352 523.7 328.9 531.3 296.4L566.6 145.1C572.5 120 553.4 96 527.7 96L92.8 96C89 77.4 72.7 64 53.7 64L8 64zM96 112L527.7 112C543.2 112 554.6 126.4 551.1 141.5L515.8 292.7C509.9 318 487.3 336 461.3 336L139.8 336L96 112zM176 528C176 510.3 190.3 496 208 496C225.7 496 240 510.3 240 528C240 545.7 225.7 560 208 560C190.3 560 176 545.7 176 528zM256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576C234.5 576 256 554.5 256 528zM432 496C449.7 496 464 510.3 464 528C464 545.7 449.7 560 432 560C414.3 560 400 545.7 400 528C400 510.3 414.3 496 432 496zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z"
