@@ -671,5 +671,64 @@ export const DeleteIcon = ({ width = '18', height = '18', className, onClick }) 
 
 )
 
+export const NextRightIcon = (
+    {
+        width = '15',
+        height = '20',
+        className,
+        onClick,
+        color = 'currentColor',
+        strokeWidth = 3
+    }
+) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        onClick={onClick}
+        viewBox="0 0 15 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M0.5 1L14 10L0.5 19"
+            stroke={color}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={strokeWidth}
+        />
+    </svg>
+)
+
+export const NextLeftIcon = (
+    {
+        width = '15',
+        height = '20',
+        className,
+        onClick,
+        color = 'currentColor',
+        strokeWidth = 3
+    }
+) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        onClick={onClick}
+        viewBox="0 0 15 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M14 1L0.5 10L14 19"
+            stroke={color}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={strokeWidth}
+        />
+    </svg>
+
+)
+
 
 

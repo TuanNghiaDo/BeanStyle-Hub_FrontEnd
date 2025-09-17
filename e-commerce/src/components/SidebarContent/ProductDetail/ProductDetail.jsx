@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { SidebarContext } from '@contexts/index';
 import styles from './ProductDetail.module.scss';
+import SliderCommon from '@components/SliderCommon/SliderCommon';
 function ProductDetail() {
     const { productDetail } = useContext(SidebarContext);
     console.log(productDetail);
@@ -8,7 +9,7 @@ function ProductDetail() {
         <div
             className={styles.wrapper}
         >
-            ProductDetail
+            <SliderCommon data={productDetail.images} />
         </div>
     );
 }
